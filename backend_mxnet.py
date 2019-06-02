@@ -7,6 +7,7 @@ from mxnet import profiler
 
 from image_net_labels import labels
 import backend
+from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 
 class BackendMXNet(backend.Backend):
@@ -57,7 +58,7 @@ class BackendMXNet(backend.Backend):
                 print("probability=%f, class=%s" % (prob[i], labels[i]))
         return end - start
 
-    def forward(self, img, warmup=True):
+    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
         Batch = namedtuple("Batch", ["data"])
         img = mx.nd.array(img, ctx=self.ctx)
         utils.debug("input shape = {}".format(img.shape))
@@ -74,6 +75,12 @@ class BackendMXNet(backend.Backend):
         )
         img = Batch([img])
         if warmup:
-            self.forward_once(img)
-        return self.forward_once(img)
+            for i in range(num_warmup):
+                self.forward_once(img)
+        res = []
+        for i in range(num_iterations):
+            cuda_profiler_start()
+            res.append(self.forward_once(img))
+            cuda_profiler_stop()
+        return res
 

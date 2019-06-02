@@ -1,3 +1,6 @@
 .venv
 __pycache__
 *_profile.json
+profile.json
+profiler_output.nvvp
+

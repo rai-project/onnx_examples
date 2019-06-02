@@ -5,12 +5,14 @@ import sys
 import click
 import glob
 import traceback
+import numpy as np
 
 
 import info
 import utils
 import input_image
 from models import models
+
 
 
 def get_backend(backend):
@@ -85,6 +87,7 @@ def main(ctx, backend, batch_size, profile, debug, quiet):
     utils.QUIET = quiet
 
     model = models[23]
+    model = models[20]
 
     if model.path is None:
         raise Exception("unable to find model in {}".format(model.name))
@@ -106,13 +109,13 @@ def main(ctx, backend, batch_size, profile, debug, quiet):
         sys.exit(1)
 
     try:
-        t = backend.forward(img)
+        t = backend.forward(img, num_warmup=2, num_iterations=10)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)
 
 
-    print("elapsed time = {}".format(t))
+    print("elapsed time = {}ms".format(np.average(t) * 1000000))
 
 
 
