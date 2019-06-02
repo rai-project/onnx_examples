@@ -42,7 +42,7 @@ def yolo_preprocess(img):
 #     return np.asarray(np.random.uniform(model.shape), dtype=np.float32)
 
 
-def get(model, batch_size=16):
+def get(model, batch_size=8):
     img = Image.open("images/dog.jpg")
     img = img.resize((224, 224), Image.BICUBIC)
     input = np.asarray(img)
