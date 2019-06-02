@@ -42,7 +42,7 @@ class BackendCaffe2(backend.Backend):
     def version(self):
         return torch.__version__
 
-    def load(self, model, enable_profiling=False):
+    def loadx(self, model, enable_profiling=False):
         onnx_model_proto = ModelProto()
         with open(model.path, "rb") as onnx_model:
             onnx_model_proto.ParseFromString(onnx_model.read())
@@ -90,17 +90,20 @@ class BackendCaffe2(backend.Backend):
 
         self.uninitialized = [value_info.name for value_info in self.model.graph.input if value_info.name not in initialized]
 
-        ws.CreateNet(init_net)
-        ws.CreateNet(predict_net)
 
+        ws.CreateNet(init_net)
         ws.RunNet(init_net.name)
 
-        if self.enable_profiling:
-            print(type(self.session.predict_net))
-            self.profile_observer = self.session.predict_net.AddObserver(
+        ws.CreateNet(predict_net)
+
+        # predict_net = core.Net(predict_net)
+
+        if enable_profiling:
+            print(type(predict_net))
+            self.profile_observer = predict_net.AddObserver(
                 "ProfileObserver"
             )
-            self.session.predict_net.AddObserver("TimeObserver")
+            predict_net.AddObserver("TimeObserver")
 
         self.session = ws
         self.model = model
@@ -108,7 +111,7 @@ class BackendCaffe2(backend.Backend):
         self.init_net = init_net
         self.predict_net = predict_net
 
-    def loadx(self, model, enable_profiling=False):
+    def load(self, model, enable_profiling=False):
         self.model = onnx.load(model.path)
         self.inputs = []
         initializers = set()
@@ -124,14 +127,15 @@ class BackendCaffe2(backend.Backend):
         self.enable_profiling = enable_profiling
 
     def __del__(self):
-        if self.enable_profiling and self.profile_observer:
+        if self.enable_profiling and self.profile_observer is not None:
             print("dassa")
             self.profile_observer.dump()
 
     def forward_once(self, img):
         start = time.time()
-        self.session.FeedBlob(self.uninitialized[0], img)
-        result = self.session.RunNet(self.predict_net.name)
+        # self.session.FeedBlob(self.uninitialized[0], img)
+        # result = self.session.RunNet(self.predict_net.name)
+        result = self.session.run(img)
         end = time.time()  # stop timer
         return end - start
 
