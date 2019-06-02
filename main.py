@@ -87,7 +87,7 @@ def main(ctx, backend, batch_size, profile, debug, quiet):
     utils.QUIET = quiet
 
     model = models[23]
-    model = models[20]
+    model = models[1]
 
     if model.path is None:
         raise Exception("unable to find model in {}".format(model.name))

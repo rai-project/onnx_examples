@@ -4,6 +4,7 @@ import time
 import numpy as np
 import caffe2.python.onnx.backend
 
+from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 from onnx import checker, ModelProto
 from caffe2.python import core, workspace
@@ -139,7 +140,13 @@ class BackendCaffe2(backend.Backend):
         end = time.time()  # stop timer
         return end - start
 
-    def forward(self, img, warmup=True):
+    def forward(self, img, warmup=True, num_warmup=10, num_iterations=10):
         if warmup:
-            self.forward_once(img)
-        return self.forward_once(img)
+            for i in range(num_warmup):
+                self.forward_once(img)
+        res = []
+        for i in range(num_iterations):
+            cuda_profiler_start()
+            res.append(self.forward_once(img))
+            cuda_profiler_stop()
+        return res

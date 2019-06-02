@@ -24,6 +24,7 @@ class BackendMXNet(backend.Backend):
         return mxnet.__version__
 
     def load(self, model, enable_profiling=False):
+        self.enable_profiling = enable_profiling
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
@@ -37,16 +38,19 @@ class BackendMXNet(backend.Backend):
             label_names=None,
         )
         if enable_profiling:
-            profiler.set_config(profile_all=True,
-                                            filename=model.name+'_profile.json',  # File used for chrome://tracing visualization
-                                                                    continuous_dump=True,
-                                                                                            aggregate_stats=True)  # Stats printed by dumps() call
+            profiler.set_config(
+                profile_all=True,
+                # profile_symbolic=True,
+                # profile_imperative=True,
+                # profile_api=True,
+                filename=model.name+ "_profile.json",
+                continuous_dump=True,
+            )  # Stats printed by dumps() call
 
     def forward_once(self, img, validate=False):
-        profiler.set_state('run')
         start = time.time()
         result = self.model.forward(img)
-        profiler.pause()
+        mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
             import numpy as np
@@ -78,9 +82,14 @@ class BackendMXNet(backend.Backend):
             for i in range(num_warmup):
                 self.forward_once(img)
         res = []
+        if self.enable_profiling:
+            profiler.set_state("run")
         for i in range(num_iterations):
             cuda_profiler_start()
             res.append(self.forward_once(img))
             cuda_profiler_stop()
+        if self.enable_profiling:
+            mx.nd.waitall()
+            profiler.set_state('stop')
+            profiler.dump_profile()
         return res
-
