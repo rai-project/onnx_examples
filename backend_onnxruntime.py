@@ -19,7 +19,7 @@ class BackendOnnxruntime(backend.Backend):
     def load(self, model, enable_profiling=False):
         self.model = model
         self.enable_profiling = enable_profiling
-        options = rt.SessionOptions()
+        options = onnxruntime.SessionOptions()
         if enable_profiling:
             options.enable_profiling = True
         self.session = onnxruntime.InferenceSession(model.path, options)
