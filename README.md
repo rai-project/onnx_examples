@@ -1,5 +1,12 @@
 ## Experiments of inference using onnx models
 
+### Run using nvprof
+
+
+```
+nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print-summary  python main.py --debug --backend=mxnet
+```
+
 ### Install GPU Requirements
 
 ```
@@ -13,6 +20,7 @@ pip install onnxmltools
 pip install onnxruntime-gpu
 pip install mxnet-cu101mkl
 pip install gluoncv
+pip install numba
 pip install tensorflow-gpu
 pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
 pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp37-cp37m-linux_x86_64.whl
