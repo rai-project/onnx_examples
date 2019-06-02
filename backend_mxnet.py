@@ -91,5 +91,5 @@ class BackendMXNet(backend.Backend):
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state('stop')
-            profiler.dump_profile()
+            profiler.dump()
         return res
