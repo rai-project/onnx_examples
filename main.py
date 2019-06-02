@@ -73,17 +73,18 @@ def get_backend(backend):
 @click.command()
 @click.option("--backend", type=click.STRING, default="onnxruntime")
 @click.option("--batch_size", type=click.INT, default=1)
+@click.option("--profile/--no-profile", help="don't perform layer-wise profiling", default=False)
 @click.option(
     "--debug/--no-debug", help="print debug messages to stderr.", default=False
 )
 @click.option("--quiet/--no-quiet", help="don't print messages", default=False)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, debug, quiet):
+def main(ctx, backend, batch_size, profile, debug, quiet):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
-    model = models[5]
+    model = models[23]
 
     if model.path is None:
         raise Exception("unable to find model in {}".format(model.name))
@@ -99,7 +100,7 @@ def main(ctx, backend, batch_size, debug, quiet):
     img = input_image.get(model, batch_size)
 
     try:
-        backend.load(model)
+        backend.load(model, enable_profiling=profile)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)
@@ -110,7 +111,9 @@ def main(ctx, backend, batch_size, debug, quiet):
         traceback.print_exc()
         sys.exit(1)
 
+
     print("elapsed time = {}".format(t))
+
 
 
 if __name__ == "__main__":
