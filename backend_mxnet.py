@@ -59,8 +59,8 @@ class BackendMXNet(backend.Backend):
     def forward_once(self, img, validate=False):
         Batch = namedtuple("Batch", ["data"])
         start = time.time()
-        # result = [run_batch(self.model.frward, Batch([i])) for i in img]
-        result = self.model.frward(Batch(i))
+        # result = [run_batch(self.model.forward, Batch([i])) for i in img]
+        result = self.model.forward(Batch([img]))
         mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
@@ -71,14 +71,16 @@ class BackendMXNet(backend.Backend):
                 print("probability=%f, class=%s" % (prob[i], labels[i]))
         return end - start
 
+    def transform(self, img):
+            return np.expand_dims(img,axis=0).astype(np.float32)
+
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
+        shp = img.shape
+        utils.debug("input shape = {}".format(img.shape))
         img = mx.nd.array(img, ctx=self.ctx)
-        utils.debug("input shape = {}".format(img.shape))
-        img = np.array(np.concatenate(img, axis=0), ctx=ctx)
-        utils.debug("input shape = {}".format(img.shape))
         self.model.bind(
             for_training=False,
-            data_shapes=[(self.data_names[0], img.shape)],
+            data_shapes=[(self.data_names[0], shp)],
             label_shapes=None,
         )
         self.model.set_params(
@@ -93,10 +95,10 @@ class BackendMXNet(backend.Backend):
         res = []
         if self.enable_profiling:
             profiler.set_state("run")
+        cuda_profiler_start()
         for i in range(num_iterations):
-            cuda_profiler_start()
+            utils.debug("processing iteration = {}".format(i))
             res.append(self.forward_once(img))
-            cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state("stop")
