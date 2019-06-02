@@ -1,8 +1,10 @@
+from PIL import Image
 import mxnet as mx
 from mxnet.contrib import onnx as onnx_mxnet
 import time
 from collections import namedtuple
 import utils
+import numpy as np
 from mxnet import profiler
 
 from image_net_labels import labels
@@ -43,18 +45,25 @@ class BackendMXNet(backend.Backend):
                 # profile_symbolic=True,
                 # profile_imperative=True,
                 # profile_api=True,
-                filename=model.name+ "_profile.json",
+                filename=model.name + "_profile.json",
                 continuous_dump=True,
             )  # Stats printed by dumps() call
 
+    def run_batch(net, data):
+        results = []
+        for batch in data:
+            outputs = net(batch)
+            results.extend([o for o in outputs.asnumpy()])
+        return np.array(results)
+
     def forward_once(self, img, validate=False):
+        Batch = namedtuple("Batch", ["data"])
         start = time.time()
-        result = self.model.forward(img)
+        # result = [run_batch(self.model.frward, Batch([i])) for i in img]
+        result = self.model.frward(Batch(i))
         mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
-            import numpy as np
-
             prob = self.model.get_outputs()[0].asnumpy()
             prob = np.squeeze(prob)
             a = np.argsort(prob)[::-1]
@@ -63,8 +72,9 @@ class BackendMXNet(backend.Backend):
         return end - start
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
-        Batch = namedtuple("Batch", ["data"])
         img = mx.nd.array(img, ctx=self.ctx)
+        utils.debug("input shape = {}".format(img.shape))
+        img = np.array(np.concatenate(img, axis=0), ctx=ctx)
         utils.debug("input shape = {}".format(img.shape))
         self.model.bind(
             for_training=False,
@@ -77,7 +87,6 @@ class BackendMXNet(backend.Backend):
             allow_missing=True,
             allow_extra=True,
         )
-        img = Batch([img])
         if warmup:
             for i in range(num_warmup):
                 self.forward_once(img)
@@ -90,6 +99,6 @@ class BackendMXNet(backend.Backend):
             cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
-            profiler.set_state('stop')
+            profiler.set_state("stop")
             profiler.dump()
         return res

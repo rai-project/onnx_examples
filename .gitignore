@@ -4,3 +4,4 @@ __pycache__
 profile.json
 profiler_output.nvvp
 
+cudnn.log
