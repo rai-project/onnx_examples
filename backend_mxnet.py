@@ -3,6 +3,7 @@ from mxnet.contrib import onnx as onnx_mxnet
 import time
 from collections import namedtuple
 import utils
+from mxnet import profiler
 
 from image_net_labels import labels
 import backend
@@ -13,6 +14,7 @@ class BackendMXNet(backend.Backend):
         super(BackendMXNet, self).__init__()
         self.session = None
         self.ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
+        self.enable_profiling = False
 
     def name(self):
         return "mxnet"
@@ -20,7 +22,7 @@ class BackendMXNet(backend.Backend):
     def version(self):
         return mxnet.__version__
 
-    def load(self, model):
+    def load(self, model, enable_profiling=False):
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
@@ -33,10 +35,17 @@ class BackendMXNet(backend.Backend):
             context=self.ctx,
             label_names=None,
         )
+        if enable_profiling:
+            profiler.set_config(profile_all=True,
+                                            filename=model.name+'_profile.json',  # File used for chrome://tracing visualization
+                                                                    continuous_dump=True,
+                                                                                            aggregate_stats=True)  # Stats printed by dumps() call
 
     def forward_once(self, img, validate=False):
+        profiler.set_state('run')
         start = time.time()
         result = self.model.forward(img)
+        profiler.pause()
         end = time.time()  # stop timer
         if validate:
             import numpy as np
