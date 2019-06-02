@@ -115,7 +115,7 @@ def main(ctx, backend, batch_size, profile, debug, quiet):
         sys.exit(1)
 
 
-    print("elapsed time = {}ms".format(np.average(t) * 1000000))
+    print("elapsed time = {}ms".format(np.average(t) * 1000))
 
 
 
