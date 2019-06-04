@@ -60,7 +60,7 @@ class BackendMXNet(backend.Backend):
         Batch = namedtuple("Batch", ["data"])
         start = time.time()
         # result = [run_batch(self.model.forward, Batch([i])) for i in img]
-        result = self.model.forward(Batch([img]))
+        result = self.model.forward(Batch([img for i in range(16)]))
         mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
