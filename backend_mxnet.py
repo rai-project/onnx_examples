@@ -11,6 +11,7 @@ from image_net_labels import labels
 import backend
 from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
+# see https://github.com/awslabs/deeplearning-benchmark/blob/master/onnx_benchmark/import_benchmarkscript.py
 
 class BackendMXNet(backend.Backend):
     def __init__(self):
