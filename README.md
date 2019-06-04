@@ -7,6 +7,13 @@ export MXNET_CUDA_ALLOW_TENSOR_CORE=0
 export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 ```
 
+### Disable bulk mode in mxnet
+
+```
+export MXNET_EXEC_BULK_EXEC_INFERENCE=0
+export MXNET_EXEC_BULK_EXEC_TRAIN=0
+```
+
 ### Run with full logging
 
 ```
