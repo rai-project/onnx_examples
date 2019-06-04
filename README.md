@@ -1,5 +1,11 @@
 ## Experiments of inference using onnx models
 
+### Run with cudnn logging
+
+```
+$ CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
+```
+
 ### Run using nvprof
 
 
