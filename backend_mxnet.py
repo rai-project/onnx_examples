@@ -72,7 +72,7 @@ class BackendMXNet(backend.Backend):
         return end - start
 
     def transform(self, img):
-            return np.expand_dims(img,axis=0).astype(np.float32)
+        return np.expand_dims(img, axis=0).astype(np.float32)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
         shp = img.shape
@@ -99,6 +99,7 @@ class BackendMXNet(backend.Backend):
         for i in range(num_iterations):
             utils.debug("processing iteration = {}".format(i))
             res.append(self.forward_once(img))
+        cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state("stop")
