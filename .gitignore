@@ -5,3 +5,4 @@ profile.json
 profiler_output.nvvp
 
 cudnn.log
+cublas.log
