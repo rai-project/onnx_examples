@@ -1,9 +1,28 @@
 ## Experiments of inference using onnx models
 
+### Disable TensorCores
+
+```
+export MXNET_CUDA_ALLOW_TENSOR_CORE=0
+export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
+```
+
+### Run with full logging
+
+```
+$ CUBLAS_LOGINFO_DBG=1 CUBLAS_LOGDEST_DBG=cublas.log CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
+```
+
 ### Run with cudnn logging
 
 ```
-$ CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
+CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
+```
+
+### Run with cublas logging
+
+```
+CUBLAS_LOGINFO_DBG=1 CUBLAS_LOGDEST_DBG=cublas.logpython main.py --debug --backend=mxnet
 ```
 
 ### Run using nvprof
