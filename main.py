@@ -115,8 +115,8 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
         traceback.print_exc()
         sys.exit(1)
 
-
-    print("elapsed time = {}ms".format(np.average(t) * 1000))
+    utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(model_idx, model.name, np.average(t) * 1000))
+    print("{}, {},{}".format(model_idx, model.name, np.average(t) * 1000))
 
 
 

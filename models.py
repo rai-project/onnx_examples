@@ -59,7 +59,9 @@ models = [
             "DenseNet-121",
             "https://s3.amazonaws.com/download.onnx/models/opset_9/densenet121.tar.gz",
         ),
-        ("DUC", "https://s3.amazonaws.com/onnx-model-zoo/duc/ResNet101_DUC_HDC.tar.gz"),
+        (
+            "DUC",
+            "https://s3.amazonaws.com/onnx-model-zoo/duc/ResNet101_DUC_HDC.tar.gz"),
         (
             "Emotion-FerPlus",
             "https://onnxzoo.blob.core.windows.net/models/opset_8/emotion_ferplus/emotion_ferplus.tar.gz",
@@ -97,27 +99,27 @@ models = [
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet152v2/resnet152v2.tar.gz",
         ),
         (
-            "ResNet18-v1",
+            "ResNet018-v1",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v1/resnet18v1.tar.gz",
         ),
         (
-            "ResNet18-v2",
+            "ResNet018-v2",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v2/resnet18v2.tar.gz",
         ),
         (
-            "ResNet32-v2",
+            "ResNet034-v2",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v2/resnet34v2.tar.gz",
         ),
         (
-            "ResNet34-v1",
+            "ResNet034-v1",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v1/resnet34v1.tar.gz",
         ),
         (
-            "ResNet50-v1",
+            "ResNet050-v1",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v1/resnet50v1.tar.gz",
         ),
         (
-            "ResNet50-v2",
+            "ResNet050-v2",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v2/resnet50v2.tar.gz",
         ),
         (
