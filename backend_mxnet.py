@@ -61,10 +61,8 @@ class BackendMXNet(backend.Backend):
 
     def forward_once(self, input, validate=False):
         start = time.time()
-        # result = [run_batch(self.model.forward, Batch([i])) for i in img]
         result = self.model.forward(input, is_train=False)
-        for output in self.model.get_outputs():
-            output.wait_to_read()
+        mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
             prob = self.model.get_outputs()[0].asnumpy()
@@ -81,20 +79,14 @@ class BackendMXNet(backend.Backend):
         img = mx.nd.array(img, ctx=self.ctx)
         shp = img.shape
         utils.debug("input shape = {}".format(img.shape))
-        if self.model_info.name.lower() == "arcface":
-            img = mx.io.DataBatch(data=(img,))
-            self.model.bind(
-                    for_training=False,
-                    data_shapes=[('data', (1, 3, image_size[0], image_size[1]))],
-            )
-        else:
-            Batch = namedtuple("Batch", ["data"])
-            img = Batch([img])
-            self.model.bind(
+        img = mx.io.DataBatch(data=(img,))
+        # print([(self.data_names[0], shp)])
+        # print(img)
+        self.model.bind(
                 for_training=False,
                 data_shapes=[(self.data_names[0], shp)],
                 label_shapes=None,
-            )
+        )
         self.model.set_params(
             arg_params=self.arg,
             aux_params=self.aux,
