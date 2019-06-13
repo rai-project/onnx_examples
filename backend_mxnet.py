@@ -30,7 +30,6 @@ class BackendMXNet(backend.Backend):
     def load(self, model, enable_profiling=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
-        print(model.path)
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
