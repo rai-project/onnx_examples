@@ -42,8 +42,8 @@ def yolo_preprocess(img):
 #     return np.asarray(np.random.uniform(model.shape), dtype=np.float32)
 
 
-def get(model, input_dim, batch_size=8):
-    img = Image.open("images/dog.jpg")
+def get_image(model, input_dim, batch_size=8):
+    img = Image.open("inputs/images/dog.jpg")
     img = img.resize((input_dim, input_dim), Image.BICUBIC)
     input = np.asarray(img)
     input = np.transpose(img, (2,0,1))
@@ -51,3 +51,14 @@ def get(model, input_dim, batch_size=8):
     input_wrapped = [input for i in range(batch_size)]
     input_wrapped = np.asarray(input_wrapped).astype(np.float32)
     return input_wrapped
+
+def get_arcface_input(model, input_dim, batch_size=8):
+    aligned = np.load("inputs/arcface_input.npy")
+    input_blob = [aligned for i in range(batch_size)]
+    return input_blob
+
+def get(model, input_dim, batch_size=8):
+    model_name = model.name.lower()
+    if model_name == "arcface":
+        return get_arcface_input(model, input_dim, batch_size=batch_size)
+    return get_image(model, input_dim, batch_size=batch_size)

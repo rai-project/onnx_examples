@@ -17,6 +17,7 @@ class BackendMXNet(backend.Backend):
     def __init__(self):
         super(BackendMXNet, self).__init__()
         self.session = None
+        self.model_info = None
         self.ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
         self.enable_profiling = False
 
@@ -27,6 +28,7 @@ class BackendMXNet(backend.Backend):
         return mxnet.__version__
 
     def load(self, model, enable_profiling=False):
+        self.model_info = model
         self.enable_profiling = enable_profiling
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
@@ -57,11 +59,10 @@ class BackendMXNet(backend.Backend):
             results.extend([o for o in outputs.asnumpy()])
         return np.array(results)
 
-    def forward_once(self, img, validate=False):
-        Batch = namedtuple("Batch", ["data"])
+    def forward_once(self, input, validate=False):
         start = time.time()
         # result = [run_batch(self.model.forward, Batch([i])) for i in img]
-        result = self.model.forward(Batch([img]))
+        result = self.model.forward(input, is_train=False)
         for output in self.model.get_outputs():
             output.wait_to_read()
         end = time.time()  # stop timer
@@ -77,14 +78,23 @@ class BackendMXNet(backend.Backend):
         return np.expand_dims(img, axis=0).astype(np.float32)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
+        img = mx.nd.array(img, ctx=self.ctx)
         shp = img.shape
         utils.debug("input shape = {}".format(img.shape))
-        img = mx.nd.array(img, ctx=self.ctx)
-        self.model.bind(
-            for_training=False,
-            data_shapes=[(self.data_names[0], shp)],
-            label_shapes=None,
-        )
+        if self.model_info.name.lower() == "arcface":
+            img = mx.io.DataBatch(data=(img,))
+            self.model.bind(
+                    for_training=False,
+                    data_shapes=[('data', (1, 3, image_size[0], image_size[1]))],
+            )
+        else:
+            Batch = namedtuple("Batch", ["data"])
+            img = Batch([img])
+            self.model.bind(
+                for_training=False,
+                data_shapes=[(self.data_names[0], shp)],
+                label_shapes=None,
+            )
         self.model.set_params(
             arg_params=self.arg,
             aux_params=self.aux,
