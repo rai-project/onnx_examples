@@ -82,6 +82,30 @@ models = [
             "MobileNet-v2",
             "https://s3.amazonaws.com/onnx-model-zoo/mobilenet/mobilenetv2-1.0/mobilenetv2-1.0.tar.gz",
         ),
+                (
+            "ResNet018-v1",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v1/resnet18v1.tar.gz",
+        ),
+        (
+            "ResNet018-v2",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v2/resnet18v2.tar.gz",
+        ),
+        (
+            "ResNet034-v1",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v1/resnet34v1.tar.gz",
+        ),
+        (
+            "ResNet034-v2",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v2/resnet34v2.tar.gz",
+        ),
+        (
+            "ResNet050-v1",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v1/resnet50v1.tar.gz",
+        ),
+        (
+            "ResNet050-v2",
+            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v2/resnet50v2.tar.gz",
+        ),
         (
             "ResNet101-v1",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet101v1/resnet101v1.tar.gz",
@@ -97,30 +121,6 @@ models = [
         (
             "ResNet152-v2",
             "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet152v2/resnet152v2.tar.gz",
-        ),
-        (
-            "ResNet018-v1",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v1/resnet18v1.tar.gz",
-        ),
-        (
-            "ResNet018-v2",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v2/resnet18v2.tar.gz",
-        ),
-        (
-            "ResNet034-v2",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v2/resnet34v2.tar.gz",
-        ),
-        (
-            "ResNet034-v1",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet34v1/resnet34v1.tar.gz",
-        ),
-        (
-            "ResNet050-v1",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v1/resnet50v1.tar.gz",
-        ),
-        (
-            "ResNet050-v2",
-            "https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet50v2/resnet50v2.tar.gz",
         ),
         (
             "Shufflenet",
