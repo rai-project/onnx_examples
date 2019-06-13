@@ -16,7 +16,6 @@ from models import models
 
 
 def get_backend(backend):
-    utils.debug("Loading {} backend".format(backend))
     if backend == "tensorflow" or backend == "tf":
         from backend_tf import BackendTensorflow
 
@@ -51,6 +50,7 @@ def get_backend(backend):
         backend = BackendTflite()
     else:
         raise ValueError("unknown backend: " + backend)
+    utils.debug("Loading {} backend version {}".format(backend.name(), backend.version()))
     return backend
 
 

@@ -25,11 +25,12 @@ class BackendMXNet(backend.Backend):
         return "mxnet"
 
     def version(self):
-        return mxnet.__version__
+        return mx.__version__
 
     def load(self, model, enable_profiling=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
+        print(model.path)
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
@@ -60,8 +61,9 @@ class BackendMXNet(backend.Backend):
         return np.array(results)
 
     def forward_once(self, input, validate=False):
+        mx.nd.waitall()
         start = time.time()
-        result = self.model.forward(input, is_train=False)
+        self.model.forward(input, is_train=False)
         mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
@@ -90,8 +92,8 @@ class BackendMXNet(backend.Backend):
         self.model.set_params(
             arg_params=self.arg,
             aux_params=self.aux,
-            allow_missing=True,
-            allow_extra=True,
+            # allow_missing=True,
+            # allow_extra=True,
         )
         if warmup:
             for i in range(num_warmup):
@@ -101,8 +103,9 @@ class BackendMXNet(backend.Backend):
             profiler.set_state("run")
         cuda_profiler_start()
         for i in range(num_iterations):
-            utils.debug("processing iteration = {}".format(i))
-            res.append(self.forward_once(img))
+            t = self.forward_once(img)
+            utils.debug("processing iteration = {} which took {}".format(i, t))
+            res.append(t)
         cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
