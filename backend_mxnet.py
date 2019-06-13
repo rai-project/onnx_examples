@@ -62,7 +62,7 @@ class BackendMXNet(backend.Backend):
         start = time.time()
         # result = [run_batch(self.model.forward, Batch([i])) for i in img]
         result = self.model.forward(Batch([img]))
-        for output in mod.get_outputs():
+        for output in self.model.get_outputs():
             output.wait_to_read()
         end = time.time()  # stop timer
         if validate:
