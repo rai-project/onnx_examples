@@ -11,7 +11,6 @@ def preprocess_imagenet(img_data):
         norm_img_data[i, :, :] = (img_data[i, :, :] / 255 - mean_vec[i]) / stddev_vec[i]
     return norm_img_data
 
-
 # this function is from yolo3.utils.letterbox_image
 def letterbox_image(image, size):
     """resize image with unchanged aspect ratio using padding"""

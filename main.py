@@ -101,7 +101,7 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
         traceback.print_exc()
         sys.exit(1)
 
-    img = input_image.get(model, input_dim, batch_size)
+    img = input_image.get(model, input_dim, batch_size=batch_size)
 
     try:
         backend.load(model, enable_profiling=profile)
