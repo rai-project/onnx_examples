@@ -6,3 +6,4 @@ profiler_output.nvvp
 
 cudnn.log
 cublas.log
+onnxruntime_profile_*.json

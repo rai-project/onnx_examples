@@ -17,30 +17,42 @@ class BackendOnnxruntime(backend.Backend):
         return onnxruntime.__version__
 
     def load(self, model, enable_profiling=False):
+        utils.debug("running on {}".format(onnxruntime.get_device()))
         self.model = model
         self.enable_profiling = enable_profiling
-        # options = onnxruntime.SessionOptions()
-        # if enable_profiling:
-        #     options.enable_profiling = True
-        options = None
+        #https://microsoft.github.io/onnxruntime/auto_examples/plot_profiling.html
+        options = onnxruntime.SessionOptions()
+        if enable_profiling:
+            options.enable_profiling = True
+        if utils.DEBUG:
+            options.session_log_severity_level = 0
         self.session = onnxruntime.InferenceSession(model.path, options)
         self.inputs = [meta.name for meta in self.session.get_inputs()]
         self.outputs = [meta.name for meta in self.session.get_outputs()]
         utils.debug("inputs of onnxruntime is {}".format(self.inputs))
         utils.debug("outputs of onnxruntime is {}".format(self.outputs))
 
-    # def __del__(self):
-    #     if self.enable_profiling:
-    #         prof_file = self.session.end_profiling()
-    #         print("profile file = {}".format(prof_file))
+    def __del__(self):
+        if self.enable_profiling:
+            prof_file = self.session.end_profiling()
+            print("profile file = {}".format(prof_file))
 
     def forward_once(self, img):
+        run_options = onnxruntime.RunOptions()
+        if utils.DEBUG:
+            run_options.run_log_severity_level = 0
         start = time.time()
-        result = self.session.run(self.outputs, {self.inputs[0]: img})
+        result = self.session.run(self.outputs, {self.inputs[0]: img}, run_options=run_options)
         end = time.time()  # stop timer
         return end - start
 
-    def forward(self, img, warmup=True):
+    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
         if warmup:
-            self.forward_once(img)
-        return self.forward_once(img)
+            for ii in range(num_warmup,):
+                self.forward_once(img)
+        res = []
+        for i in range(num_iterations):
+            t = self.forward_once(img)
+            utils.debug("processing iteration = {} which took {}".format(i, t))
+            res.append(t)
+        return res
