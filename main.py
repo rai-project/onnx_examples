@@ -11,7 +11,7 @@ import numpy as np
 import info
 import utils
 import input_image
-from models import models
+from models import get_models
 
 
 
@@ -88,6 +88,7 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
+    models = get_models(batch_size=batch_size)
     model = models[model_idx]
 
     if model.path is None:
@@ -104,7 +105,8 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
     img = input_image.get(model, input_dim, batch_size=batch_size)
 
     try:
-        model = utils.fix_batch_size(model)
+        if batch_size > 1:
+            model = utils.fix_batch_size(model)
         backend.load(model, enable_profiling=profile)
     except Exception as err:
         traceback.print_exc()

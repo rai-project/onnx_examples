@@ -5,26 +5,29 @@ import unittest
 base_model_dir = path.join(path.expanduser("~"), "data", "carml", "dlperf")
 
 
-def find_onnx_model(name):
+def find_onnx_model(name, batch_size=1):
     files = glob.glob(path.join(base_model_dir, name, "**", "*.onnx"), recursive=True)
     if len(files) == 0:
         msg = "unable to find model {}".format(name)
         raise Exception(msg)
     files = [f for f in files if not path.basename(f).startswith(".")]
-    batch_files = [f for f in files if path.basename(f) == "model_batch.onnx"]
-    if batch_files != []:
-        return batch_files[0]
+    if batch_size > 1:
+        batch_files = [f for f in files if path.basename(f) == "model_batch.onnx"]
+        if batch_files != []:
+            return batch_files[0]
+
+    files = [f for f in files if path.basename(f) != "model_batch.onnx"]
     if len(files) != 1:
         raise Exception("found more than one onnx model {}".format(name))
     return files[0]
 
 
 class model_url_info:
-    def __init__(self, name, url, shape=(1, 224, 224, 3)):
+    def __init__(self, name, url, shape=(1, 224, 224, 3), batch_size=1):
         self.name = name
         self.url = url
         try:
-            self.path = find_onnx_model(name)
+            self.path = find_onnx_model(name, batch_size=batch_size)
         except:
             self.path = None
         self.shape = shape
@@ -36,8 +39,9 @@ class model_url_info:
         return self.name
 
 
-models = [
-    model_url_info(name, url)
+def get_models(batch_size=1):
+    return [
+    model_url_info(name, url, batch_size=batch_size)
     for name, url in [
         (
             "ArcFace",
