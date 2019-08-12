@@ -117,7 +117,7 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
         sys.exit(1)
 
     utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(model_idx, model.name, np.average(t) * 1000))
-    print("{}, {},{}".format(model_idx, model.name, np.average(t) * 1000))
+    print("{},{},{}".format(model_idx, model.name, np.average(t) * 1000))
 
 
 
