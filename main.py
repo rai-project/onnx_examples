@@ -104,6 +104,7 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
     img = input_image.get(model, input_dim, batch_size=batch_size)
 
     try:
+        model = utils.fix_batch_size(model)
         backend.load(model, enable_profiling=profile)
     except Exception as err:
         traceback.print_exc()

@@ -8,8 +8,13 @@ base_model_dir = path.join(path.expanduser("~"), "data", "carml", "dlperf")
 def find_onnx_model(name):
     files = glob.glob(path.join(base_model_dir, name, "**", "*.onnx"), recursive=True)
     if len(files) == 0:
-        raise Exception("unable to find model {}".format(name))
+        msg = "unable to find model {}".format(name)
+        raise Exception(msg)
     files = [f for f in files if not path.basename(f).startswith(".")]
+    batch_files = [f for f in files if path.basename(f) == "model_batch.onnx"]
+    if batch_files != []:
+        print(batch_files)
+        return batch_files[0]
     if len(files) != 1:
         raise Exception("found more than one onnx model {}".format(name))
     return files[0]

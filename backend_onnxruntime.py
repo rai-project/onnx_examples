@@ -16,7 +16,7 @@ class BackendOnnxruntime(backend.Backend):
     def version(self):
         return onnxruntime.__version__
 
-    def load(self, model, enable_profiling=False):
+    def load(self, model, enable_profiling=False, batch_size=1):
         utils.debug("running on {}".format(onnxruntime.get_device()))
         self.model = model
         self.enable_profiling = enable_profiling
@@ -26,6 +26,11 @@ class BackendOnnxruntime(backend.Backend):
             options.enable_profiling = True
         if utils.DEBUG:
             options.session_log_severity_level = 0
+
+
+        options.session_thread_pool_size=2
+        options.enable_sequential_execution=True
+        options.set_graph_optimization_level(2)
         self.session = onnxruntime.InferenceSession(model.path, options)
         self.inputs = [meta.name for meta in self.session.get_inputs()]
         self.outputs = [meta.name for meta in self.session.get_outputs()]
