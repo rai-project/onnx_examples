@@ -30,7 +30,6 @@ class BackendMXNet(backend.Backend):
     def load(self, model, enable_profiling=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
-        print(model.path)
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
@@ -82,7 +81,6 @@ class BackendMXNet(backend.Backend):
         shp = img.shape
         utils.debug("input shape = {}".format(img.shape))
         img = mx.io.DataBatch([img])
-        print((self.data_names[0], shp))
         # print(img)
         self.model.bind(
                 for_training=False,
