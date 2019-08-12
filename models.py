@@ -13,7 +13,6 @@ def find_onnx_model(name):
     files = [f for f in files if not path.basename(f).startswith(".")]
     batch_files = [f for f in files if path.basename(f) == "model_batch.onnx"]
     if batch_files != []:
-        print(batch_files)
         return batch_files[0]
     if len(files) != 1:
         raise Exception("found more than one onnx model {}".format(name))
