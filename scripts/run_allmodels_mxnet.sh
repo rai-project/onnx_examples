@@ -18,8 +18,10 @@ declare -a batch_sizes=(
 	#   1024
 )
 
+mkdir -p results/mxnet
+
 for BATCH_SIZE in "${batch_sizes[@]}"; do
-	OUTPUTFILE=results/mxnet_${BATCH_SIZE}.csv
+	OUTPUTFILE=results/mxnet/batchsize_${BATCH_SIZE}.csv
 	BATCH_SIZE_OPT=--batch_size=${BATCH_SIZE}
 
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
