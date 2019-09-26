@@ -35,10 +35,12 @@ def require(pred, msg=None):
     if not pred:
         if not QUIET:
             if msg:
-                click.echo(click.style("[INTERNAL ERROR] " + msg, fg="red"), err=True)
+                click.echo(click.style(
+                    "[INTERNAL ERROR] " + msg, fg="red"), err=True)
             else:
                 click.echo(click.style("[INTERNAL ERROR]", fg="red"), err=True)
     assert pred
+
 
 def change_input_dim(model):
     # Use some symbolic name not used for any other dimension
@@ -51,6 +53,8 @@ def change_input_dim(model):
     # have the same batch_dim
     inputs = model.graph.input
     for input in inputs:
+        if len(input.type.tensor_type.shape.dim) == 0:
+            continue
         # Checks omitted.This assumes that all inputs are tensors and have a shape with first dim.
         # Add checks as needed.
         dim1 = input.type.tensor_type.shape.dim[0]
@@ -72,6 +76,7 @@ def fix_batch_size(model):
     model.path = res_path
     return model
 
+
 def fix_batch_size0(model):
     import os
     import onnx
@@ -92,8 +97,10 @@ def fix_batch_size0(model):
     # clear stale shape inference
     mp.graph.ClearField('value_info')
     # fix the reshape op that outputs OC2_DUMMY_0 to forward 'batch' using 0
-    shape_const = [i for i in mp.graph.initializer if i.name == 'OC2_DUMMY_1'][0]
-    shape_const.CopyFrom(numpy_helper.from_array(np.asarray([0,2048], dtype=np.int64), 'OC2_DUMMY_1'))
+    shape_const = [
+        i for i in mp.graph.initializer if i.name == 'OC2_DUMMY_1'][0]
+    shape_const.CopyFrom(numpy_helper.from_array(
+        np.asarray([0, 2048], dtype=np.int64), 'OC2_DUMMY_1'))
     # add batch to graph output shape
     mp.graph.output[0].type.tensor_type.shape.dim[0].dim_param = batch_symbol
     # run shape inference

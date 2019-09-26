@@ -34,6 +34,7 @@ class BackendMXNet(backend.Backend):
         self.is_run = False
         self.model_info = model
         self.enable_profiling = enable_profiling
+        print(model.path)
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
         self.data_names = [
             graph_input
@@ -49,6 +50,7 @@ class BackendMXNet(backend.Backend):
         model_metadata = onnx_mxnet.get_model_metadata(model.path)
         self.data_names = [inputs[0]
                            for inputs in model_metadata.get('input_tensor_data')]
+        print(self.data_names)
         self.model = gluon.nn.SymbolBlock(
             outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
         net_params = self.model.collect_params()
@@ -58,7 +60,6 @@ class BackendMXNet(backend.Backend):
         for param in self.aux:
             if param in net_params:
                 net_params[param]._load_init(self.aux[param], ctx=self.ctx)
-
         self.model.hybridize(static_alloc=True, static_shape=True)
         # mx.visualization.plot_network( self.sym,  node_attrs={"shape": "oval", "fixedsize": "false"})
 
@@ -100,7 +101,7 @@ class BackendMXNet(backend.Backend):
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
         img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
-        # utils.debug("image_shape={}".format(img.shape))
+        utils.debug("image_shape={}".format(np.shape(img)))
         # utils.debug("datanames={}".format(self.data_names))
 
         # batch = namedtuple('Batch', ['data'])
