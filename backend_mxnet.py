@@ -99,27 +99,17 @@ class BackendMXNet(backend.Backend):
         return np.expand_dims(img, axis=0).astype(np.float32)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
-        utils.debug("image_shape={}".format(img.shape))
-        utils.debug("datanames={}".format(self.data_names))
-        # img = [mx.nd.array(img, ctx=self.ctx).astype(np.float32)]
-        # data_shapes = []
-        # data_forward = []
-        # for idx in range(len(self.data_names)):
-        #     val = img[idx]
-        #     # data_shapes.append((self.data_names[idx], np.shape(val)))
-        #     data_shapes.append((self.data_names[idx], [2, 3, 224, 224]))
-        #     data_forward.append(mx.nd.array(val))
+        img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
+        # utils.debug("image_shape={}".format(img.shape))
+        # utils.debug("datanames={}".format(self.data_names))
 
         # batch = namedtuple('Batch', ['data'])
         # data = batch([mx.nd.array(input)])
-        batch_size = 2
-        img = mx.nd.random_normal(
-            0, 0.5, (batch_size, 3, 224, 224), ctx=self.ctx).astype(np.float32)
         # img = mx.io.DataBatch(data=[batch_data, ],
         #                       label=None)
 
         # utils.debug("datashapes={}".format(data_shapes))
-        utils.debug("img_shape={}".format(img.shape))
+        # utils.debug("img_shape={}".format(img.shape))
         # print(img)
         # self.model.bind(
         #     for_training=False,

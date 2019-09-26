@@ -29,15 +29,15 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	for i in $(seq 0 29); do
 		echo "infer using model $i"
 		if [[ "$i" -eq 0 ]]; then # arcface
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 7 ]]; then # emotion_ferplus
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --model_idx=$i --input_dim=64 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=64 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 10 ]]; then # mnist
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --model_idx=$i --input_dim=28 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=28 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 24 ]]; then # tiny_yolo
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --model_idx=$i --input_dim=416 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=416 >>${OUTPUTFILE}
 		else
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --model_idx=$i >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i >>${OUTPUTFILE}
 		fi
 	done
 done
