@@ -9,7 +9,7 @@ from mxnet import profiler
 
 from image_net_labels import labels
 import backend
-from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
+# from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 # see https://github.com/awslabs/deeplearning-benchmark/blob/master/onnx_benchmark/import_benchmarkscript.py
 
@@ -99,12 +99,12 @@ class BackendMXNet(backend.Backend):
         res = []
         if self.enable_profiling:
             profiler.set_state("run")
-        cuda_profiler_start()
+        # cuda_profiler_start()
         for i in range(num_iterations):
             t = self.forward_once(img)
             utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
-        cuda_profiler_stop()
+        # cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state("stop")

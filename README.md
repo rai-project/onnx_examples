@@ -8,14 +8,11 @@
 pyenv virtualenv miniconda3-4.3.30 dlperf
 pyenv activate dlperf
 
-pip install onnx
-pip install future
-pip install click
-pip install onnxmltools
+pip install onnx onnxmltools
+pip install future click numba
 pip install onnxruntime-gpu
 pip install mxnet-cu101mkl
 pip install gluoncv
-pip install numba
 pip install tensorflow-gpu
 pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
 pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp37-cp37m-linux_x86_64.whl
@@ -36,14 +33,31 @@ Then install the packages using pip
 pip install onnx gluoncv mxnet onnxmltools onnxruntime torchvision torch tensorflow onnx-tf future tvm numba click pycodestyle
 ```
 
-### Disable TensorCores
+### Setup the Environment
+
+Run
+
+```
+./setup_en.sh
+```
+
+which set up the following environment variables.
+
+- Disable Autotune
+
+```
+export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
+export TF_CUDNN_USE_AUTOTUNE=0
+```
+
+- Disable TensorCores
 
 ```
 export MXNET_CUDA_ALLOW_TENSOR_CORE=0
 export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 ```
 
-### Disable bulk mode in mxnet
+- Disable bulk mode in MXNet
 
 ```
 export MXNET_EXEC_BULK_EXEC_INFERENCE=0
