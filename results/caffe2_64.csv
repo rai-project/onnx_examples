@@ -6416,3 +6416,164 @@ frame #5: <unknown function> + 0x951b1 (0x7ff05654a1b1 in /home/ubuntu/.pyenv/ve
 frame #52: __libc_start_main + 0xe7 (0x7ff0bac30b97 in /lib/x86_64-linux-gnu/libc.so.6)
 
 26,VGG16,140.3066873550415
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+ONNX FATAL: [enforce fail at backend.cc:1423] . Don't know how to map unexpected argument spatial (from operator SpatialBN)
+frame #0: c10::ThrowEnforceNotMet(char const*, int, char const*, std::string const&, void const*) + 0x47 (0x7fe3e549be17 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libc10.so)
+frame #1: caffe2::onnx::Caffe2Backend::CheckOpSchemaArguments(caffe2::OpSchema const&, caffe2::OperatorDef const&) + 0x2a6 (0x7fe3896fb3c6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #2: caffe2::onnx::Caffe2Backend::OnnxNodeToCaffe2Ops(onnx_torch::ModelProto const&, onnx_torch::ModelProto const&, caffe2::onnx::ConversionContext const&, caffe2::onnx::OnnxNode*) + 0x35e (0x7fe38970aa3e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #3: caffe2::onnx::Caffe2Backend::ConvertNode(std::string const&, caffe2::onnx::ConversionContext const&) + 0xde (0x7fe38970ac8e in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/torch/lib/libtorch.so)
+frame #4: <unknown function> + 0x5d2a6 (0x7fe3857ef2a6 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+frame #5: <unknown function> + 0x951b1 (0x7fe3858271b1 in /home/ubuntu/.pyenv/versions/dlperf_experiments/lib/python3.7/site-packages/caffe2/python/caffe2_pybind11_state_gpu.cpython-37m-x86_64-linux-gnu.so)
+<omitting python frames>
+frame #52: __libc_start_main + 0xe7 (0x7fe3e9f0db97 in /lib/x86_64-linux-gnu/libc.so.6)
+
+28,VGG19,175.83045959472656
