@@ -50,7 +50,7 @@ def get_image(model, input_dim, input_channel, batch_size=8):
     input = np.asarray(img)
     input = np.transpose(img, (2, 0, 1))
     if input_channel == 1:
-        input = np.asarray([input[0]])
+        input = [input[0]]
     input_wrapped = [input for i in range(batch_size)]
     input_wrapped = np.asarray(input_wrapped).astype(np.float32)
     return input_wrapped
