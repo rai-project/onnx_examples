@@ -7,11 +7,14 @@ import utils
 import numpy as np
 from mxnet import profiler
 
+import gluoncv
+from mxnet import gluon
 from image_net_labels import labels
 import backend
 # from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 # see https://github.com/awslabs/deeplearning-benchmark/blob/master/onnx_benchmark/import_benchmarkscript.py
+
 
 class BackendMXNet(backend.Backend):
     def __init__(self):
@@ -36,12 +39,16 @@ class BackendMXNet(backend.Backend):
             for graph_input in self.sym.list_inputs()
             if graph_input not in self.arg and graph_input not in self.aux
         ]
-        self.model = mx.mod.Module(
-            symbol=self.sym,
-            data_names=self.data_names,
-            context=self.ctx,
-            label_names=None,
-        )
+        # self.model = mx.mod.Module(
+        #     symbol=self.sym,
+        #     data_names=self.data_names,
+        #     context=self.ctx,
+        #     label_names=None,
+        # )
+        self.model = gluon.nn.SymbolBlock(
+            outputs=self.sym, inputs=mx.sym.var(self.data_names[0]))
+        # self.model.load_params('det1-0001.params', ctx=self.ctx)
+        self.model = self.model.cast(np.float32)
         if enable_profiling:
             profiler.set_config(
                 profile_all=True,
@@ -62,7 +69,7 @@ class BackendMXNet(backend.Backend):
     def forward_once(self, input, validate=False):
         mx.nd.waitall()
         start = time.time()
-        self.model.forward(input, is_train=False)
+        self.model.forward(input)
         mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
@@ -77,22 +84,43 @@ class BackendMXNet(backend.Backend):
         return np.expand_dims(img, axis=0).astype(np.float32)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
-        img = mx.nd.array(img, ctx=self.ctx)
-        shp = img.shape
-        utils.debug("input shape = {}".format(img.shape))
-        img = mx.io.DataBatch([img])
+        utils.debug("image_shape={}".format(img.shape))
+        utils.debug("datanames={}".format(self.data_names))
+        img = [mx.nd.array(img, ctx=self.ctx)]
+        data_shapes = []
+        data_forward = []
+        for idx in range(len(self.data_names)):
+            val = img[idx]
+            # data_shapes.append((self.data_names[idx], np.shape(val)))
+            data_shapes.append((self.data_names[idx], [2, 3, 224, 224]))
+            data_forward.append(mx.nd.array(val))
+
+        # batch = namedtuple('Batch', ['data'])
+        # data = batch([mx.nd.array(input)])
+        batch_size = 2
+        batch_data = mx.nd.random_normal(
+            0, 0.5, (batch_size, 3, 224, 224), ctx=self.ctx)
+        img = mx.io.DataBatch(data=[batch_data, ],
+                              label=None)
+
+        utils.debug("datashapes={}".format(data_shapes))
         # print(img)
-        self.model.bind(
-                for_training=False,
-                data_shapes=[(self.data_names[0], shp)],
-                label_shapes=None,
-        )
-        self.model.set_params(
-            arg_params=self.arg,
-            aux_params=self.aux,
-            allow_missing=True,
-            allow_extra=True,
-        )
+        # self.model.bind(
+        #     for_training=False,
+        #     data_shapes=data_shapes,
+        #     label_shapes=None,
+        # )
+        # self.model.reshape(data_shapes)
+        # if not self.arg and not self.aux:
+        #     self.model.init_params()
+        # else:
+        #     self.model.set_params(
+        #         arg_params=self.arg,
+        #         aux_params=self.aux,
+        #         allow_missing=True,
+        #         allow_extra=True,
+        #     )
+        utils.debug("num_warmup = {}".format(num_warmup))
         if warmup:
             for i in range(num_warmup):
                 self.forward_once(img)
