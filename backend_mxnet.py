@@ -31,6 +31,7 @@ class BackendMXNet(backend.Backend):
         return mx.__version__
 
     def load(self, model, enable_profiling=False):
+        self.is_run = False
         self.model_info = model
         self.enable_profiling = enable_profiling
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
@@ -45,10 +46,22 @@ class BackendMXNet(backend.Backend):
         #     context=self.ctx,
         #     label_names=None,
         # )
+        model_metadata = onnx_mxnet.get_model_metadata(model.path)
+        self.data_names = [inputs[0]
+                           for inputs in model_metadata.get('input_tensor_data')]
         self.model = gluon.nn.SymbolBlock(
-            outputs=self.sym, inputs=mx.sym.var(self.data_names[0]))
-        # self.model.load_params('det1-0001.params', ctx=self.ctx)
-        self.model = self.model.cast(np.float32)
+            outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
+        net_params = self.model.collect_params()
+        for param in self.arg:
+            if param in net_params:
+                net_params[param]._load_init(self.arg[param], ctx=self.ctx)
+        for param in self.aux:
+            if param in net_params:
+                net_params[param]._load_init(self.aux[param], ctx=self.ctx)
+
+        self.model.hybridize(static_alloc=True, static_shape=True)
+        # mx.visualization.plot_network( self.sym,  node_attrs={"shape": "oval", "fixedsize": "false"})
+
         if enable_profiling:
             profiler.set_config(
                 profile_all=True,
@@ -67,10 +80,12 @@ class BackendMXNet(backend.Backend):
         return np.array(results)
 
     def forward_once(self, input, validate=False):
-        mx.nd.waitall()
+        if not self.is_run:
+            mx.nd.waitall()
+        self.is_run = True
         start = time.time()
         self.model.forward(input)
-        mx.nd.waitall()
+        # mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
             prob = self.model.get_outputs()[0].asnumpy()
@@ -86,24 +101,25 @@ class BackendMXNet(backend.Backend):
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
         utils.debug("image_shape={}".format(img.shape))
         utils.debug("datanames={}".format(self.data_names))
-        img = [mx.nd.array(img, ctx=self.ctx)]
-        data_shapes = []
-        data_forward = []
-        for idx in range(len(self.data_names)):
-            val = img[idx]
-            # data_shapes.append((self.data_names[idx], np.shape(val)))
-            data_shapes.append((self.data_names[idx], [2, 3, 224, 224]))
-            data_forward.append(mx.nd.array(val))
+        # img = [mx.nd.array(img, ctx=self.ctx).astype(np.float32)]
+        # data_shapes = []
+        # data_forward = []
+        # for idx in range(len(self.data_names)):
+        #     val = img[idx]
+        #     # data_shapes.append((self.data_names[idx], np.shape(val)))
+        #     data_shapes.append((self.data_names[idx], [2, 3, 224, 224]))
+        #     data_forward.append(mx.nd.array(val))
 
         # batch = namedtuple('Batch', ['data'])
         # data = batch([mx.nd.array(input)])
         batch_size = 2
-        batch_data = mx.nd.random_normal(
-            0, 0.5, (batch_size, 3, 224, 224), ctx=self.ctx)
-        img = mx.io.DataBatch(data=[batch_data, ],
-                              label=None)
+        img = mx.nd.random_normal(
+            0, 0.5, (batch_size, 3, 224, 224), ctx=self.ctx).astype(np.float32)
+        # img = mx.io.DataBatch(data=[batch_data, ],
+        #                       label=None)
 
-        utils.debug("datashapes={}".format(data_shapes))
+        # utils.debug("datashapes={}".format(data_shapes))
+        utils.debug("img_shape={}".format(img.shape))
         # print(img)
         # self.model.bind(
         #     for_training=False,

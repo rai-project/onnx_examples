@@ -14,7 +14,6 @@ import input_image
 from models import get_models
 
 
-
 def get_backend(backend):
     if backend == "tensorflow" or backend == "tf":
         from backend_tf import BackendTensorflow
@@ -50,7 +49,8 @@ def get_backend(backend):
         backend = BackendTflite()
     else:
         raise ValueError("unknown backend: " + backend)
-    utils.debug("Loading {} backend version {}".format(backend.name(), backend.version()))
+    utils.debug("Loading {} backend version {}".format(
+        backend.name(), backend.version()))
     return backend
 
 
@@ -75,6 +75,8 @@ def get_backend(backend):
 @click.command()
 @click.option("--backend", type=click.STRING, default="onnxruntime")
 @click.option("--batch_size", type=click.INT, default=1)
+@click.option("--num_warmup", type=click.INT, default=2)
+@click.option("--num_iterations", type=click.INT, default=10)
 @click.option("--input_dim", type=click.INT, default=224)
 @click.option("--model_idx", type=click.INT, default=0)
 @click.option("--profile/--no-profile", help="don't perform layer-wise profiling", default=False)
@@ -84,7 +86,7 @@ def get_backend(backend):
 @click.option("--quiet/--no-quiet", help="don't print messages", default=False)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
+def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, model_idx, profile, debug, quiet):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
@@ -113,14 +115,15 @@ def main(ctx, backend, batch_size, input_dim, model_idx, profile, debug, quiet):
         sys.exit(1)
 
     try:
-        t = backend.forward(img, num_warmup=2, num_iterations=10)
+        t = backend.forward(img, num_warmup=num_warmup,
+                            num_iterations=num_iterations)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)
 
-    utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(model_idx, model.name, np.average(t) * 1000))
+    utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(
+        model_idx, model.name, np.average(t) * 1000))
     print("{},{},{}".format(model_idx, model.name, np.average(t) * 1000))
-
 
 
 if __name__ == "__main__":
