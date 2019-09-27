@@ -2,6 +2,7 @@ import argparse
 import time
 import numpy as np
 import mxnet as mx
+from cuda_utils import DeviceReset
 from mxnet import nd, image
 from mxnet.gluon.data.vision import transforms
 from gluoncv.utils import export_block
@@ -37,6 +38,7 @@ class cuda_profiler_stop():
     import numba.cuda as cuda
     cuda.profile_stop()
 
+# cuda_profiler_start()
 
 # Load Model
 model_name = opt.model
@@ -68,11 +70,21 @@ def forward_once():
 forward_once()
 
 t = 0
+t=forward_once()
+t=forward_once()
+t=forward_once()
+t=forward_once()
 with nvtx.profile_range('forward'):
-    t = forward_once()
+     t = forward_once()
 # cuda_profiler_stop()
 
 print(t*1000)
+
+del net
+
+# cuda_profiler_stop()
+
+# DeviceReset(0)
 
 # tmpdir = "/tmp/models/{}/".format(model_name)
 # net.export(tmpdir + "model")

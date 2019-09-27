@@ -1,14 +1,18 @@
 #!/bin/bash
 
+mkdir -p nvidia_nsight_systems
+
 # --delay=10 \
 # --capture-range=nvtx \
 # -p 'forward@*' \
 # -e NSYS_NVTX_PROFILER_REGISTER_ONLY=0 \
+    # --capture-range=nvtx \
 
-/opt/nvidia/nsight-systems-cli/2019.5.1/bin/nsys profile \
+py=`pyenv which python`
+
+/opt/nvidia/nsight-systems/2019.4.2/target-linux-x64/nsys profile \
     --trace="cuda,cudnn,cublas" \
-    --stats=true \
-    --show-output=true \
-    --sample=none \
-    --force-overwrite=true \
-    -o ~/nvidia_nsight_systems/ python forward.py --model vgg16 --batch_size=32
+    --backtrace=none \
+    --export=sqlite \
+    --wait=all \
+    ${py} forward.py --model vgg16 --batch_size=32
