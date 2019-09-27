@@ -9,3 +9,5 @@ export MXNET_EXEC_BULK_EXEC_TRAIN=0
 
 # clear LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:/home/ubuntu/.gvm/pkgsets/go1.12/global/overlay/lib
+
+export PATH=/opt/nvidia/nsight-systems-cli/2019.5.1/bin:$PATH

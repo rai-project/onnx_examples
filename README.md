@@ -114,7 +114,13 @@ python main.py --debug --backend=caffe2
 
 ### Profile using Nsight
 
-1. Profile cuda,cudnn,cublas traces
+1. ONNX models
+   
 ```
 nsys profile --trace=cuda,cudnn,cublas python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
+```
+
+1. MXNet models
+```
+nsys profile --trace=cudnn,cublas python forward.py --model vgg16 --batch_size=32
 ```
