@@ -24,7 +24,7 @@ Use [`pipenv`](https://github.com/pypa/pipenv) to launch a shell
 
 ```
 pyenv virtualenv miniconda3-4.3.30 dlperf
-conda activate dlperf
+pyenv activate dlperf
 ```
 
 Then install the packages using pip
