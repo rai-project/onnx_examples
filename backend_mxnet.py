@@ -38,6 +38,9 @@ class BackendMXNet(backend.Backend):
         # print(model.path)
         # print(model.name)
 
+        if model.name == "BVLC_AlexNet":
+            model.path = "/home/ubuntu/.gvm/pkgsets/go1.12/global/src/github.com/rai-project/onnx_examples/tools/alexnet.onnx"
+
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
 
         if model.name == "Emotion-FerPlus":
@@ -47,7 +50,6 @@ class BackendMXNet(backend.Backend):
 
             self.sym, self.arg, self.aux = mx.model.load_checkpoint(
                 "/home/ubuntu/test/FERPlus", 0)
-
         model_metadata = onnx_mxnet.get_model_metadata(model.path)
         self.data_names = [
             graph_input
@@ -95,7 +97,7 @@ class BackendMXNet(backend.Backend):
     def forward_once(self, input, validate=False):
         if self.is_run:
             mx.nd.waitall()
-        self.is_run = True
+            self.is_run = True
         start = time.time()
         prob = self.model.forward(input)
         mx.nd.waitall()
@@ -134,6 +136,6 @@ class BackendMXNet(backend.Backend):
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state("stop")
-            profiler.dump()
+            profiler.dump(finished=False)
             # print(profiler.dumps())
         return res
