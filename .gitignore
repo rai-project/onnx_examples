@@ -9,3 +9,5 @@ cublas.log
 onnxruntime_profile_*.json
 *.onnx
 *.params
+
+mxnet_models

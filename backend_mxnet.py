@@ -92,7 +92,7 @@ class BackendMXNet(backend.Backend):
             results.extend([o for o in outputs.asnumpy()])
         return np.array(results)
 
-    def forward_once(self, input, validate=False):
+    def forward_once(self, input, validate=True):
         # if self.is_run:
         #     mx.nd.waitall()
         self.is_run = True
@@ -132,8 +132,8 @@ class BackendMXNet(backend.Backend):
             res.append(t)
         # cuda_profiler_stop()
         if self.enable_profiling:
-            # mx.nd.waitall()
+            mx.nd.waitall()
             profiler.set_state("stop")
-            # profiler.dump()
-            print(profiler.dumps())
+            profiler.dump()
+            # print(profiler.dumps())
         return res
