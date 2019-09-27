@@ -40,4 +40,5 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=5 --num_iterations=30 --model_idx=$i >>${OUTPUTFILE}
 		fi
 	done
+    gzip ${OUTPUTFILE}
 done
