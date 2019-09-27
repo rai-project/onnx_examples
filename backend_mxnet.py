@@ -93,12 +93,12 @@ class BackendMXNet(backend.Backend):
         return np.array(results)
 
     def forward_once(self, input, validate=False):
-        # if self.is_run:
-        #     mx.nd.waitall()
+        if self.is_run:
+            mx.nd.waitall()
         self.is_run = True
         start = time.time()
         prob = self.model.forward(input)
-        # mx.nd.waitall()
+        mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
             prob = prob.asnumpy()
