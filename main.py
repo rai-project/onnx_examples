@@ -109,7 +109,7 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
                           batch_size=batch_size)
 
     try:
-        if batch_size > 1:
+        if backend.name() == "mxnet" and batch_size > 1:
             model = utils.fix_batch_size(model)
         backend.load(model, enable_profiling=profile)
     except Exception as err:

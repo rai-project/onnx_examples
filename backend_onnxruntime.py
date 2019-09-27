@@ -1,6 +1,7 @@
 import onnxruntime
 import time
 import backend
+import numpy as np
 
 import utils
 
@@ -18,6 +19,7 @@ class BackendOnnxruntime(backend.Backend):
 
     def load(self, model, enable_profiling=False, batch_size=1):
         utils.debug("running on {}".format(onnxruntime.get_device()))
+        utils.debug("model path = {}".format(model.path))
         self.model = model
         self.enable_profiling = enable_profiling
         #https://microsoft.github.io/onnxruntime/auto_examples/plot_profiling.html
@@ -30,7 +32,7 @@ class BackendOnnxruntime(backend.Backend):
 
         options.session_thread_pool_size=2
         options.enable_sequential_execution=True
-        options.set_graph_optimization_level(2)
+        options.set_graph_optimization_level(3)
         self.session = onnxruntime.InferenceSession(model.path, options)
         self.inputs = [meta.name for meta in self.session.get_inputs()]
         self.outputs = [meta.name for meta in self.session.get_outputs()]
@@ -52,6 +54,8 @@ class BackendOnnxruntime(backend.Backend):
         return end - start
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
+        img = nd.array([img], dtype="float32")
+        utils.debug("image shape = {}".format(np.shape(img)))
         if warmup:
             for ii in range(num_warmup,):
                 self.forward_once(img)
