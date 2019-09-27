@@ -23,6 +23,6 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
 	rm -fr ${OUTPUTFILE}.gz
-    python main.py --batch_size=${BATCH_SIZE} --backend=mxnet --num_warmup=5 --num_iterations=4 --model_idx=15 --debug >>${OUTPUTFILE}
+    python main.py --batch_size=${BATCH_SIZE} --backend=mxnet --num_warmup=2 --num_iterations=4 --model_idx=14 --debug >>${OUTPUTFILE}
 	gzip ${OUTPUTFILE}
 done
