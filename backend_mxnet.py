@@ -6,7 +6,7 @@ from collections import namedtuple
 import utils
 import numpy as np
 from mxnet import profiler
-
+from extra.mxnet_shufflenet import ShuffleNet
 import gluoncv
 from mxnet import gluon
 from image_net_labels import labels
@@ -34,7 +34,10 @@ class BackendMXNet(backend.Backend):
     def load(self, model, enable_profiling=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
-        print(model.path)
+
+        # print(model.path)
+        # print(model.name)
+
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
 
         if model.name == "Emotion-FerPlus":
@@ -61,6 +64,12 @@ class BackendMXNet(backend.Backend):
         for param in self.aux:
             if param in net_params:
                 net_params[param]._load_init(self.aux[param], ctx=self.ctx)
+
+        if model.name == "Shufflenet":
+            # download from https://github.com/RoGoSo/shufflenet-gluon/blob/master/model.py
+            self.model = ShuffleNet()
+            self.model.initialize(ctx=self.ctx)
+
         self.model.hybridize(static_alloc=True, static_shape=True)
         # mx.visualization.plot_network( self.sym,  node_attrs={"shape": "oval", "fixedsize": "false"})
 
