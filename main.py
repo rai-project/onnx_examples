@@ -78,7 +78,7 @@ def get_backend(backend):
 @click.option("--num_warmup", type=click.INT, default=2)
 @click.option("--num_iterations", type=click.INT, default=10)
 @click.option("--input_dim", type=click.INT, default=224)
-@click.option("--input_channel", type=click.INT, default=3)
+@click.option("--input_channels", type=click.INT, default=3)
 @click.option("--model_idx", type=click.INT, default=0)
 @click.option("--profile/--no-profile", help="don't perform layer-wise profiling", default=False)
 @click.option(
@@ -87,7 +87,7 @@ def get_backend(backend):
 @click.option("--quiet/--no-quiet", help="don't print messages", default=False)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channel, model_idx, profile, debug, quiet):
+def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
@@ -105,7 +105,7 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
         traceback.print_exc()
         sys.exit(1)
 
-    img = input_image.get(model, input_dim, input_channel,
+    img = input_image.get(model, input_dim, input_channels,
                           batch_size=batch_size)
 
     try:

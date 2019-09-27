@@ -18,7 +18,7 @@
                 "--model_idx=7",
                 "--debug",
                 "--num_warmup=10",
-                "--input_channel=1",
+                "--input_channels=1",
                 "--input_dim=64"
             ],
             "console": "integratedTerminal"

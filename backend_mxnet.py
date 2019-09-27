@@ -19,6 +19,7 @@ import backend
 class BackendMXNet(backend.Backend):
     def __init__(self):
         super(BackendMXNet, self).__init__()
+        self.is_run = False
         self.session = None
         self.model_info = None
         self.ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
@@ -31,26 +32,26 @@ class BackendMXNet(backend.Backend):
         return mx.__version__
 
     def load(self, model, enable_profiling=False):
-        self.is_run = False
         self.model_info = model
         self.enable_profiling = enable_profiling
         print(model.path)
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
+
+        if model.name == "Emotion-FerPlus":
+            # download from https://github.com/awslabs/mxnet-model-server/blob/master/docs/model_zoo.md
+            params_path = "/home/ubuntu/test/FERPlus-0000.params"
+            symbol_path = "/home/ubuntu/test/FERPlus-symbol.json"
+
+            self.sym, self.arg, self.aux = mx.model.load_checkpoint(
+                "/home/ubuntu/test/FERPlus", 0)
+
+        model_metadata = onnx_mxnet.get_model_metadata(model.path)
         self.data_names = [
             graph_input
             for graph_input in self.sym.list_inputs()
             if graph_input not in self.arg and graph_input not in self.aux
         ]
-        # self.model = mx.mod.Module(
-        #     symbol=self.sym,
-        #     data_names=self.data_names,
-        #     context=self.ctx,
-        #     label_names=None,
-        # )
-        model_metadata = onnx_mxnet.get_model_metadata(model.path)
-        self.data_names = [inputs[0]
-                           for inputs in model_metadata.get('input_tensor_data')]
-        print(self.data_names)
+
         self.model = gluon.nn.SymbolBlock(
             outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
         net_params = self.model.collect_params()

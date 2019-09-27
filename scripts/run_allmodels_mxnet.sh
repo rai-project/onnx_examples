@@ -31,9 +31,9 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 		if [[ "$i" -eq 0 ]]; then # arcface
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 7 ]]; then # emotion_ferplus
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=64 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=64 --input_channels=1 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 10 ]]; then # mnist
-			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=28 --input_dim=3 >>${OUTPUTFILE}
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=28 --input_channels=3 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 24 ]]; then # tiny_yolo
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=$i --input_dim=416 >>${OUTPUTFILE}
 		else
