@@ -6,16 +6,20 @@ from collections import namedtuple
 import utils
 import numpy as np
 from mxnet import profiler
-
+from extra.mxnet_shufflenet import ShuffleNet
+import gluoncv
+from mxnet import gluon
 from image_net_labels import labels
 import backend
 # from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 # see https://github.com/awslabs/deeplearning-benchmark/blob/master/onnx_benchmark/import_benchmarkscript.py
 
+
 class BackendMXNet(backend.Backend):
     def __init__(self):
         super(BackendMXNet, self).__init__()
+        self.is_run = False
         self.session = None
         self.model_info = None
         self.ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
@@ -30,18 +34,45 @@ class BackendMXNet(backend.Backend):
     def load(self, model, enable_profiling=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
+
+        # print(model.path)
+        # print(model.name)
+
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
+
+        if model.name == "Emotion-FerPlus":
+            # download from https://github.com/awslabs/mxnet-model-server/blob/master/docs/model_zoo.md
+            params_path = "/home/ubuntu/test/FERPlus-0000.params"
+            symbol_path = "/home/ubuntu/test/FERPlus-symbol.json"
+
+            self.sym, self.arg, self.aux = mx.model.load_checkpoint(
+                "/home/ubuntu/test/FERPlus", 0)
+
+        model_metadata = onnx_mxnet.get_model_metadata(model.path)
         self.data_names = [
             graph_input
             for graph_input in self.sym.list_inputs()
             if graph_input not in self.arg and graph_input not in self.aux
         ]
-        self.model = mx.mod.Module(
-            symbol=self.sym,
-            data_names=self.data_names,
-            context=self.ctx,
-            label_names=None,
-        )
+
+        self.model = gluon.nn.SymbolBlock(
+            outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
+        net_params = self.model.collect_params()
+        for param in self.arg:
+            if param in net_params:
+                net_params[param]._load_init(self.arg[param], ctx=self.ctx)
+        for param in self.aux:
+            if param in net_params:
+                net_params[param]._load_init(self.aux[param], ctx=self.ctx)
+
+        if model.name == "Shufflenet":
+            # download from https://github.com/RoGoSo/shufflenet-gluon/blob/master/model.py
+            self.model = ShuffleNet()
+            self.model.initialize(ctx=self.ctx)
+
+        self.model.hybridize(static_alloc=True, static_shape=True)
+        # mx.visualization.plot_network( self.sym,  node_attrs={"shape": "oval", "fixedsize": "false"})
+
         if enable_profiling:
             profiler.set_config(
                 profile_all=True,
@@ -60,10 +91,12 @@ class BackendMXNet(backend.Backend):
         return np.array(results)
 
     def forward_once(self, input, validate=False):
-        mx.nd.waitall()
+        if not self.is_run:
+            mx.nd.waitall()
+        self.is_run = True
         start = time.time()
-        self.model.forward(input, is_train=False)
-        mx.nd.waitall()
+        self.model.forward(input)
+        # mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
             prob = self.model.get_outputs()[0].asnumpy()
@@ -77,22 +110,34 @@ class BackendMXNet(backend.Backend):
         return np.expand_dims(img, axis=0).astype(np.float32)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
-        img = mx.nd.array(img, ctx=self.ctx)
-        shp = img.shape
-        utils.debug("input shape = {}".format(img.shape))
-        img = mx.io.DataBatch([img])
+        img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
+        utils.debug("image_shape={}".format(np.shape(img)))
+        # utils.debug("datanames={}".format(self.data_names))
+
+        # batch = namedtuple('Batch', ['data'])
+        # data = batch([mx.nd.array(input)])
+        # img = mx.io.DataBatch(data=[batch_data, ],
+        #                       label=None)
+
+        # utils.debug("datashapes={}".format(data_shapes))
+        # utils.debug("img_shape={}".format(img.shape))
         # print(img)
-        self.model.bind(
-                for_training=False,
-                data_shapes=[(self.data_names[0], shp)],
-                label_shapes=None,
-        )
-        self.model.set_params(
-            arg_params=self.arg,
-            aux_params=self.aux,
-            allow_missing=True,
-            allow_extra=True,
-        )
+        # self.model.bind(
+        #     for_training=False,
+        #     data_shapes=data_shapes,
+        #     label_shapes=None,
+        # )
+        # self.model.reshape(data_shapes)
+        # if not self.arg and not self.aux:
+        #     self.model.init_params()
+        # else:
+        #     self.model.set_params(
+        #         arg_params=self.arg,
+        #         aux_params=self.aux,
+        #         allow_missing=True,
+        #         allow_extra=True,
+        #     )
+        utils.debug("num_warmup = {}".format(num_warmup))
         if warmup:
             for i in range(num_warmup):
                 self.forward_once(img)
