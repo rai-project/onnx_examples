@@ -55,6 +55,8 @@ class BackendMXNet(backend.Backend):
             if graph_input not in self.arg and graph_input not in self.aux
         ]
 
+        self.graph_outputs = self.sym.list_outputs()
+
         self.model = gluon.nn.SymbolBlock(
             outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
         net_params = self.model.collect_params()
@@ -91,8 +93,8 @@ class BackendMXNet(backend.Backend):
         return np.array(results)
 
     def forward_once(self, input, validate=False):
-        if not self.is_run:
-            mx.nd.waitall()
+        # if self.is_run:
+        #     mx.nd.waitall()
         self.is_run = True
         start = time.time()
         self.model.forward(input)
@@ -113,30 +115,9 @@ class BackendMXNet(backend.Backend):
         img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
         utils.debug("image_shape={}".format(np.shape(img)))
         # utils.debug("datanames={}".format(self.data_names))
-
-        # batch = namedtuple('Batch', ['data'])
-        # data = batch([mx.nd.array(input)])
-        # img = mx.io.DataBatch(data=[batch_data, ],
-        #                       label=None)
-
         # utils.debug("datashapes={}".format(data_shapes))
         # utils.debug("img_shape={}".format(img.shape))
         # print(img)
-        # self.model.bind(
-        #     for_training=False,
-        #     data_shapes=data_shapes,
-        #     label_shapes=None,
-        # )
-        # self.model.reshape(data_shapes)
-        # if not self.arg and not self.aux:
-        #     self.model.init_params()
-        # else:
-        #     self.model.set_params(
-        #         arg_params=self.arg,
-        #         aux_params=self.aux,
-        #         allow_missing=True,
-        #         allow_extra=True,
-        #     )
         utils.debug("num_warmup = {}".format(num_warmup))
         if warmup:
             for i in range(num_warmup):
@@ -147,11 +128,12 @@ class BackendMXNet(backend.Backend):
         # cuda_profiler_start()
         for i in range(num_iterations):
             t = self.forward_once(img)
-            utils.debug("processing iteration = {} which took {}".format(i, t))
+            # utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
         # cuda_profiler_stop()
         if self.enable_profiling:
-            mx.nd.waitall()
+            # mx.nd.waitall()
             profiler.set_state("stop")
-            profiler.dump()
+            # profiler.dump()
+            print(profiler.dumps())
         return res

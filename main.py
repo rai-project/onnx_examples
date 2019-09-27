@@ -85,9 +85,11 @@ def get_backend(backend):
     "--debug/--no-debug", help="print debug messages to stderr.", default=False
 )
 @click.option("--quiet/--no-quiet", help="don't print messages", default=False)
+@click.option("--short_output/--no-short_output", help="shorten the output results", default=True)
+@click.option("--output/--no-output", help="don't print output results", default=True)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet):
+def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet, short_output, output):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
@@ -123,11 +125,15 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
         traceback.print_exc()
         sys.exit(1)
 
-    t = t * 1000
+    t = np.multiply(t, 1000)
     utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(
         model_idx, model.name, np.average(t)))
-    print("{},{},{},{},{},\"{}\"".format(model_idx, model.name, np.min(t),
-                                         np.average(t), np.max(t), ';'.join(str(x) for x in t)))
+    if output and not short_output:
+        print("{},{},{},{},{},\"{}\"".format(model_idx, model.name, np.min(t),
+                                             np.average(t), np.max(t), ';'.join(str(x) for x in t)))
+    elif output:
+        print("{},{},{},{},{}".format(model_idx, model.name, np.min(t),
+                                      np.average(t), np.max(t)))
 
 
 if __name__ == "__main__":

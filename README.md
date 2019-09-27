@@ -110,3 +110,11 @@ python main.py --debug --backend=mxnet
 python main.py --debug --backend=onnxruntime
 python main.py --debug --backend=caffe2
 ```
+
+
+### Profile using Nsight
+
+1. Profile cuda,cudnn,cublas traces
+```
+nsys profile --trace=cuda,cudnn,cublas python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
+```

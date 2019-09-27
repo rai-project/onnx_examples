@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 trap "exit" INT
 
 export MXNET_CUDA_ALLOW_TENSOR_CORE=0
@@ -14,11 +13,11 @@ declare -a batch_sizes=(
 	8
 	16
 	32
-	64
-	128
-	256
-	512
-	1024
+	# 64
+	# 128
+	# 256
+	# 512
+	# 1024
 )
 
 mkdir -p results/mxnet
@@ -44,5 +43,5 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --num_warmup=5 --num_iterations=30 --model_idx=$i >>${OUTPUTFILE}
 		fi
 	done
-    gzip ${OUTPUTFILE}
+	gzip ${OUTPUTFILE}
 done
