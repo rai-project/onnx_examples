@@ -54,7 +54,6 @@ class BackendOnnxruntime(backend.Backend):
         return end - start
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
-        img = nd.array([img], dtype="float32")
         utils.debug("image shape = {}".format(np.shape(img)))
         if warmup:
             for ii in range(num_warmup,):

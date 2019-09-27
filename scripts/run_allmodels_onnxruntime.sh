@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+trap "exit" INT
+
 export onnxruntime_CUDA_ALLOW_TENSOR_CORE=0
 export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export onnxruntime_CUDNN_AUTOTUNE_DEFAULT=0
