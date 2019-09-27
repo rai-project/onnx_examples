@@ -123,9 +123,11 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
         traceback.print_exc()
         sys.exit(1)
 
+    t = t * 1000
     utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(
-        model_idx, model.name, np.average(t) * 1000))
-    print("{},{},{}".format(model_idx, model.name, np.average(t) * 1000))
+        model_idx, model.name, np.average(t)))
+    print("{},{},{},{},{},\"{}\"".format(model_idx, model.name, np.min(t),
+                                         np.average(t), np.max(t), np.array2string(t, separator=';')))
 
 
 if __name__ == "__main__":
