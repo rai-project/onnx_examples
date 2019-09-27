@@ -87,9 +87,10 @@ def get_backend(backend):
 @click.option("--quiet/--no-quiet", help="don't print messages", default=False)
 @click.option("--short_output/--no-short_output", help="shorten the output results", default=True)
 @click.option("--output/--no-output", help="don't print output results", default=True)
+@click.option("--validate/--no-validate", help="don't validate output results", default=False)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet, short_output, output):
+def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet, short_output, output, validate):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
@@ -120,7 +121,8 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
 
     try:
         t = backend.forward(img, num_warmup=num_warmup,
-                            num_iterations=num_iterations)
+                            num_iterations=num_iterations,
+                            validate=validate)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)

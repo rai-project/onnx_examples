@@ -92,16 +92,16 @@ class BackendMXNet(backend.Backend):
             results.extend([o for o in outputs.asnumpy()])
         return np.array(results)
 
-    def forward_once(self, input, validate=True):
+    def forward_once(self, input, validate=False):
         # if self.is_run:
         #     mx.nd.waitall()
         self.is_run = True
         start = time.time()
-        self.model.forward(input)
+        prob = self.model.forward(input)
         # mx.nd.waitall()
         end = time.time()  # stop timer
         if validate:
-            prob = self.model.get_outputs()[0].asnumpy()
+            prob = prob.asnumpy()
             prob = np.squeeze(prob)
             a = np.argsort(prob)[::-1]
             for i in a[0:5]:
@@ -111,7 +111,7 @@ class BackendMXNet(backend.Backend):
     def transform(self, img):
         return np.expand_dims(img, axis=0).astype(np.float32)
 
-    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
+    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False):
         img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
         utils.debug("image_shape={}".format(np.shape(img)))
         # utils.debug("datanames={}".format(self.data_names))
@@ -127,7 +127,7 @@ class BackendMXNet(backend.Backend):
             profiler.set_state("run")
         # cuda_profiler_start()
         for i in range(num_iterations):
-            t = self.forward_once(img)
+            t = self.forward_once(img, validate=validate)
             # utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
         # cuda_profiler_stop()
