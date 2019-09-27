@@ -5,17 +5,17 @@ export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
-	# 1
+	1
 	2
-	#   4 \
-	#   8 \
-	#   16 \
-	#   32 \
-	#   64 \
-	#   128 \
-	#   256 \
-	#   512 \
-	#   1024
+	4
+	8
+	16
+	32
+	64
+	128
+	256
+	512
+	1024
 )
 
 mkdir -p results/mxnet
