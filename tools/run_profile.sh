@@ -10,9 +10,10 @@ mkdir -p nvidia_nsight_systems
 
 py=`pyenv which python`
 
-/opt/nvidia/nsight-systems/2019.4.2/target-linux-x64/nsys profile \
-    --trace="cuda,cudnn,cublas" \
+/opt/nvidia/nsight-systems/2019.5.1/target-linux-x64/nsys profile \
+    --wait=all \
+    --stats=true \
+    --trace=cuda,cublas,cudnn \
     --backtrace=none \
     --export=sqlite \
-    --wait=all \
-    ${py} forward.py --model vgg16 --batch_size=32
+    python forward.py --model vgg16 --batch_size=32

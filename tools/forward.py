@@ -2,7 +2,7 @@ import argparse
 import time
 import numpy as np
 import mxnet as mx
-from cuda_utils import DeviceReset
+from cuda_utils import DeviceReset, cudaDeviceSynchronize
 from mxnet import nd, image
 from mxnet.gluon.data.vision import transforms
 from gluoncv.utils import export_block
@@ -45,12 +45,14 @@ model_name = opt.model
 batch_size = opt.batch_size
 input_dim = opt.input_dim
 pretrained = True
-ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
+ctx = mx.gpu()
 net = get_model(model_name, pretrained=pretrained, ctx=ctx)
 
 # 224x224
 
 net.hybridize(static_alloc=True, static_shape=True)
+
+net.collect_params().reset_ctx(ctx)
 
 
 def forward_once():
@@ -82,7 +84,11 @@ print(t*1000)
 
 del net
 
-# cuda_profiler_stop()
+cuda_profiler_stop()
+
+cudaDeviceSynchronize()
+
+del ctx
 
 # DeviceReset(0)
 

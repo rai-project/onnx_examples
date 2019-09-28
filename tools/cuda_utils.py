@@ -105,7 +105,13 @@ cudaDeviceReset = libcudart.cudaDeviceReset
 cudaDeviceReset.restype = cudaError_t
 cudaDeviceReset.argtypes = []
 
+cudaDeviceSynchronize = libcudart.cudaDeviceSynchronize
+cudaDeviceSynchronize.restype = cudaError_t
+cudaDeviceSynchronize.argtypes = []
 
+
+def DeviceSynchronize(dev):
+    cudaDeviceSynchronize()
 
 def DeviceReset(dev):
     '''
