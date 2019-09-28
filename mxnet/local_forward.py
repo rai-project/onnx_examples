@@ -5,7 +5,9 @@ import argparse
 import time
 import mxnet as mx
 import numpy as np
-from collections import namedtuple
+
+file_path = os.path.realpath(__file__)
+dir_name = os.path.dirname(file_path)
 
 os.environ["MXNET_CUDNN_AUTOTUNE_DEFAULT"] = "0"
 
@@ -43,7 +45,7 @@ model_idx = opt.model_idx
 ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
 
 sym, arg_params, aux_params = mx.model.load_checkpoint(
-    'mxnet_models/'+model_name, 0)
+    dir_name + '/mxnet_models/'+model_name, 0)
 
 data_names = [
     graph_input
@@ -53,28 +55,26 @@ data_names = [
 
 net = mx.mod.Module(
     symbol=sym,
-    data_names=data_names,
+    data_names=[data_names[0]],
     context=ctx,
     label_names=None,
 )
 
-net.hybridize(static_alloc=True, static_shape=True)
-
 input_shape = (batch_size, input_channels, input_dim, input_dim)
+
+img = mx.random.uniform(
+    shape=input_shape, ctx=ctx)
 
 net.bind(for_training=False, data_shapes=[
          (data_names[0], input_shape)], label_shapes=net._label_shapes)
 
 net.set_params(arg_params, aux_params, allow_missing=True)
 
-input = mx.random.uniform(
-    shape=input_shape, ctx=ctx)
-
 
 def forward_once():
     mx.nd.waitall()
     start = time.time()
-    prob = net.forward(input)
+    prob = net.predict(img)
     mx.nd.waitall()
     end = time.time()  # stop timer
     return end - start
