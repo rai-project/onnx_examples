@@ -131,11 +131,11 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
     utils.debug("mode idx = {}, model = {} elapsed time = {}ms".format(
         model_idx, model.name, np.average(t)))
     if output and not short_output:
-        print("{},{},{},{},{},\"{}\"".format(model_idx, model.name, np.min(t),
-                                             np.average(t), np.max(t), ';'.join(str(x) for x in t)))
+        print("{},{},{},{},{},{},\"{}\"".format(model_idx+1, model.name, batch_size, np.min(t),
+                                                np.average(t), np.max(t), ';'.join(str(x) for x in t)))
     elif output:
-        print("{},{},{},{},{}".format(model_idx, model.name, np.min(t),
-                                      np.average(t), np.max(t)))
+        print("{},{},{},{},{},{}".format(model_idx+1, model.name, batch_size, np.min(t),
+                                         np.average(t), np.max(t)))
 
 
 if __name__ == "__main__":

@@ -95,5 +95,5 @@ res = np.multiply(res, 1000)
 if model_name == "alexnet":
     model_name = "bvlc_"+model_name
 
-print("{},{},{},{},{}".format(model_idx, model_name, np.min(res),
-                              np.average(res), np.max(res)))
+print("{},{},{},{},{},{}".format(model_idx+1, model_name, batch_size, np.min(t),
+                                 np.average(t), np.max(t)))
