@@ -40,7 +40,7 @@ To run the models in MXNet with batch size > 1, we use equivalent MXNet models f
 
 ### Install Requirements
 
-#### GPU
+1. GPU
 
 ```
 pyenv virtualenv miniconda3-4.3.30 dlperf
@@ -56,7 +56,7 @@ pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_
 pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp37-cp37m-linux_x86_64.whl
 ```
 
-#### CPU
+2. CPU
 
 Use [`pipenv`](https://github.com/pypa/pipenv) to launch a shell
 
@@ -102,31 +102,71 @@ export MXNET_EXEC_BULK_EXEC_INFERENCE=0
 export MXNET_EXEC_BULK_EXEC_TRAIN=0
 ```
 
-### Run with full logging
+### Run Models
+
+1.  Run ONNX models with various backends
 
 ```
-CUBLAS_LOGINFO_DBG=1 CUBLAS_LOGDEST_DBG=cublas.log CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
+python main.py --debug --backend=mxnet
+python main.py --debug --backend=onnxruntime
+python main.py --debug --backend=caffe2
+```
+Some models only support batch size = 1, see [Models](#Models).
+
+2. Run MXNet models from GluonCV
+
+```
+python mxnet/gluon_forward.py --num_warmup=1 --num_iterations=1 --model_name=alexnet --model_idx=1 --batch_size=1
 ```
 
-### Run with cudnn logging
+3.  Run MXNet models from XXX-symbo.json and XXX-0000.params
+
+```
+python mxnet/local_forward.py --num_warmup=1 --num_iterations=1 --model_name=bvlc_caffenet --model_idx=1 --batch_size=1
+```
+
+3. Run experiments with scripts
+
+Run all MXNet models with 
+
+```
+./scripts/run_allmodels_mxnet.sh
+```
+
+### Profiling 
+
+1.  Run with cudnn logging
 
 ```
 CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
 ```
 
-### Run with cublas logging
+2. Run with cublas logging
 
 ```
 CUBLAS_LOGINFO_DBG=1 CUBLAS_LOGDEST_DBG=cublas.logpython main.py --debug --backend=mxnet
 ```
 
-### Run using nvprof
+
+3.  Run with full logging
 
 ```
-nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print-summary  python main.py --debug --backend=mxnet
+CUBLAS_LOGINFO_DBG=1 CUBLAS_LOGDEST_DBG=cublas.log CUDNN_LOGINFO_DBG=1 CUDNN_LOGDEST_DBG=cudnn.log python main.py --debug --backend=mxnet
 ```
 
-#### TensorRT
+4. Profile using nvprof
+
+```
+nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print-summary python main.py --backend=mxnet  --num_warmup=1 --num_iterations=1 --model_idx=1
+```
+
+5.  Profile using Nsight
+
+```
+nsys profile --trace=cuda,cudnn,cublas python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
+```
+
+### TensorRT
 
 1.  Download TensorRT 5.1.x.x for Ubuntu 18.04 and CUDA 10.1 tar package from https://developer.nvidia.com/nvidia-tensorrt-download.
 
@@ -140,25 +180,3 @@ nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print
 
          cd TensorRT-5.1.x.x/python
          pip install tensorrt-5.1.x.x-cp3x-none-linux_x86_64.whl
-
-### Run
-
-```
-python main.py --debug --backend=mxnet
-python main.py --debug --backend=onnxruntime
-python main.py --debug --backend=caffe2
-```
-
-
-### Profile using Nsight
-
-1. ONNX models
-   
-```
-nsys profile --trace=cuda,cudnn,cublas python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
-```
-
-2. MXNet models
-```
-nsys profile --trace=cudnn,cublas python forward.py --model vgg16 --batch_size=32
-```
