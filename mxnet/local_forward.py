@@ -24,14 +24,23 @@ parser.add_argument('--input_dim', type=int, required=False, default=224,
                     help='input dimension')
 parser.add_argument('--input_channels', type=int, required=False, default=3,
                     help='input channels')
+parser.add_argument('--num_iterations', type=int, required=False, default=30,
+                    help='number of iterations to run')
+parser.add_argument('--num_warmup', type=int, required=False, default=5,
+                    help='number of warmup iterations to run')
+parser.add_argument('--model_idx', type=int, required=False, default=2,
+                    help='model idx')
 opt = parser.parse_args()
 
 model_name = opt.model_name
 batch_size = opt.batch_size
 input_dim = opt.input_dim
 input_channels = opt.input_channels
+num_iterations = opt.num_iterations
+num_warmup = opt.num_warmup
+model_idx = opt.model_idx
 
-ctx = mx.gpu(0)
+ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
 
 sym, arg_params, aux_params = mx.model.load_checkpoint(
     'mxnet_models/'+model_name, 0)
@@ -49,37 +58,37 @@ net = mx.mod.Module(
     label_names=None,
 )
 
-input_shape = (batch_size, input_channels, input_dim, input_dim)
-img = mx.nd.random.uniform(
-    shape=input_shape, ctx=ctx)
+net.hybridize(static_alloc=True, static_shape=True)
 
-xprint(net._label_shapes)
+input_shape = (batch_size, input_channels, input_dim, input_dim)
 
 net.bind(for_training=False, data_shapes=[
          (data_names[0], input_shape)], label_shapes=net._label_shapes)
 
-xprint(data_names[0])
-
 net.set_params(arg_params, aux_params, allow_missing=True)
 
-Batch = namedtuple("Batch", ["data"])
+input = mx.random.uniform(
+    shape=input_shape, ctx=ctx)
 
 
 def forward_once():
     mx.nd.waitall()
     start = time.time()
-    output = net.predict(img)
-    # prob = output.asnumpy()
+    prob = net.forward(input)
     mx.nd.waitall()
     end = time.time()  # stop timer
     return end - start
 
 
-forward_once()
-# forward_once()
-# forward_once()
+for i in range(num_warmup):
+    forward_once()
 
-t = 0
-t = forward_once()
+res = []
+for i in range(num_iterations):
+    t = forward_once()
+    res.append(t)
 
-print(t*1000)
+res = np.multiply(res, 1000)
+
+print("{},{},{},{},{}".format(model_idx, model_name, np.min(res),
+                              np.average(res), np.max(res)))

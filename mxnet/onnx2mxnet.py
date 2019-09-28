@@ -5,10 +5,10 @@ import numpy as np
 import mxnet as mx
 from mxnet.contrib import onnx as onnx_mxnet
 
-onnx_filename = 'zfnet512/model.onnx'
-converted_mxnet_filename = 'mxnet_models/zfnet512'
-input_dim = 224
-input_channels = 3
+onnx_filename = 'mnist/model.onnx'
+converted_mxnet_filename = 'mnist2'
+input_dim = 28
+input_channels = 1
 
 # Import the ONNX model into MXNet's symbolic interface
 sym, arg_params, aux_params = onnx_mxnet.import_model(onnx_filename)

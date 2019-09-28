@@ -38,9 +38,6 @@ class BackendMXNet(backend.Backend):
         # print(model.path)
         # print(model.name)
 
-        if model.name == "BVLC_AlexNet":
-            model.path = "/home/ubuntu/.gvm/pkgsets/go1.12/global/src/github.com/rai-project/onnx_examples/tools/alexnet.onnx"
-
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
 
         if model.name == "Emotion-FerPlus":
