@@ -1,5 +1,41 @@
 ## Experiments of inference using onnx models
 
+### Models
+
+|   ID | Model Name         | Source                           | Note                                   |
+| ---: | ------------------ | -------------------------------- | -------------------------------------- |
+|    0 | ArcFace            | ONNX                             |                                        |
+|    1 | BVLC_AlexNet       | GluonCV                          |                                        |
+|    2 | BVLC_CaffeNet      | Caffe                            |                                        |
+|    3 | BVLC_GoogleNet     | Caffe                            |                                        |
+|    4 | BVLC_RCNN_ILSVRC13 | Caffe                            |                                        |
+|    5 | DenseNet-121       | ONNX                             |                                        |
+|    6 | DUC                | ONNX                             |                                        |
+|    7 | Emotion-FerPlus    | Does not work for batch size > 1 | The original ONNX model is from CNTK   |
+|    8 | Inception-v1       | MXNet Model Server               |                                        |
+|    9 | Inception-v2       | Does not work for batch size > 1 | The original ONNX model is from Caffe2 |
+|   10 | MNIST              | MXNet                            | The original ONNX model is from CNTK   |
+|   11 | MobileNet-v2       | ONNX                             |                                        |
+|   12 | ResNet018-v1       | ONNX                             |                                        |
+|   13 | ResNet018-v2       | ONNX                             |                                        |
+|   14 | ResNet034-v1       | ONNX                             |                                        |
+|   15 | ResNet034-v2       | ONNX                             |                                        |
+|   16 | ResNet050-v1       | ONNX                             |                                        |
+|   17 | ResNet050-v2       | ONNX                             |                                        |
+|   18 | ResNet101-v1       | ONNX                             |                                        |
+|   19 | ResNet101-v2       | ONNX                             |                                        |
+|   20 | ResNet152-v1       | ONNX                             |                                        |
+|   21 | ResNet152-v2       | ONNX                             |                                        |
+|   22 | Shufflenet         | ONNX                             |                                        |
+|   23 | Squeezenet-v1.1    | ONNX                             |                                        |
+|   24 | Tiny_YOLO-v2       | ONNX                             |                                        |
+|   25 | VGG16-BN           | ONNX                             |                                        |
+|   26 | VGG16              | ONNX                             |                                        |
+|   27 | VGG19-BN           | ONNX                             |                                        |
+|   28 | VGG19              | ONNX                             |                                        |
+|   29 | Zfnet512           | GluonCV2                         | The original ONNX model is from Caffe2 |
+
+
 ### Install Requirements
 
 #### GPU

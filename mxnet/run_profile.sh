@@ -18,9 +18,8 @@
     --show-output=true \
     --sample=none \
     --cudabacktrace=true \
-    --wait=primary \
     --force-overwrite=true \
-    -o ~/nvidia_nsight_systems/out2.qdstrm python gluon_forward.py --model resnet50_v1 --batch_size=32
+    -o ~/nvidia_nsight_systems/out.qdstrm python gluon_forward.py --model resnet50_v1 --batch_size=32
 
 # /opt/nvidia/nsight-systems-cli/2019.5.1/bin/nsys profile \
 #     --trace="nvtx,cuda,cudnn,cublas" \

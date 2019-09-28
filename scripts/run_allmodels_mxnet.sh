@@ -29,7 +29,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
 	rm -fr ${OUTPUTFILE}.gz
-	for i in $(seq 1 29); do
+	for i in $(seq 0 29); do
 		echo "infer using model $i"
 		if [[ "$i" -eq 0 ]]; then # arcface
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=5 --num_iterations=30 --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
