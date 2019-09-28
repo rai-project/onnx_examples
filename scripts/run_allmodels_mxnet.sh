@@ -7,23 +7,23 @@ export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
-	# 1
+	1
 	2
-	# 4
-	# 8
-	# 16
-	# 32
-	# 64
-	# 128
-	# 256
-	# 512
-	# 1024
+	4
+	8
+	16
+	32
+	64
+	128
+	256
+	512
+	1024
 )
 
-mkdir -p results/mxnet2
+mkdir -p results/mxnet
 
 for BATCH_SIZE in "${batch_sizes[@]}"; do
-	OUTPUTFILE=results/mxnet2/batchsize_${BATCH_SIZE}.csv
+	OUTPUTFILE=results/mxnet/batchsize_${BATCH_SIZE}.csv
 	BATCH_SIZE_OPT=--batch_size=${BATCH_SIZE}
 
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
@@ -43,5 +43,5 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=5 --num_iterations=30 --model_idx=$i >>${OUTPUTFILE}
 		fi
 	done
-	# gzip ${OUTPUTFILE}
+	gzip ${OUTPUTFILE}
 done

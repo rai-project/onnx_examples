@@ -1,4 +1,5 @@
-# convert a onnx model to a mxnet model
+# load a onnx model export to a mxnet model
+
 import onnx
 import numpy as np
 import mxnet as mx
