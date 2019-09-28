@@ -22,16 +22,15 @@ class BackendOnnxruntime(backend.Backend):
         utils.debug("model path = {}".format(model.path))
         self.model = model
         self.enable_profiling = enable_profiling
-        #https://microsoft.github.io/onnxruntime/auto_examples/plot_profiling.html
+        # https://microsoft.github.io/onnxruntime/auto_examples/plot_profiling.html
         options = onnxruntime.SessionOptions()
         if enable_profiling:
             options.enable_profiling = True
         if utils.DEBUG:
             options.session_log_severity_level = 0
 
-
-        options.session_thread_pool_size=2
-        options.enable_sequential_execution=True
+        options.session_thread_pool_size = 2
+        options.enable_sequential_execution = True
         options.set_graph_optimization_level(3)
         self.session = onnxruntime.InferenceSession(model.path, options)
         self.inputs = [meta.name for meta in self.session.get_inputs()]
@@ -49,11 +48,12 @@ class BackendOnnxruntime(backend.Backend):
         if utils.DEBUG:
             run_options.run_log_severity_level = 0
         start = time.time()
-        result = self.session.run(self.outputs, {self.inputs[0]: img}, run_options=run_options)
+        result = self.session.run(
+            self.outputs, {self.inputs[0]: img}, run_options=run_options)
         end = time.time()  # stop timer
         return end - start
 
-    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100):
+    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False):
         utils.debug("image shape = {}".format(np.shape(img)))
         if warmup:
             for ii in range(num_warmup,):
