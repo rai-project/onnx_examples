@@ -23,18 +23,17 @@ declare -a batch_sizes=(
 NUM_WARMUP=5
 NUM_ITERATIONS=30
 
-mkdir -p results/mxnet
+mkdir -p results/mxnet2
 
 for BATCH_SIZE in "${batch_sizes[@]}"; do
 
-	OUTPUTFILE=results/mxnet/batchsize_${BATCH_SIZE}.csv
+	OUTPUTFILE=results/mxnet2/batchsize_${BATCH_SIZE}.csv
 	BATCH_SIZE_OPT=--batch_size=${BATCH_SIZE}
 
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
-	rm -fr ${OUTPUTFILE}.gz
 
-	for i in $(seq 0 29); do
+	for i in $(seq 29 29); do
 		echo "infer using model $i"
 
 		# run mxnet models instead of onnx models for batch size > 1 for some models
@@ -75,6 +74,4 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i >>${OUTPUTFILE}
 		fi
 	done
-
-	gzip ${OUTPUTFILE}
 done
