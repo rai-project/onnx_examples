@@ -10,11 +10,11 @@ export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
 	1
-	2
-	4
-	8
-	16
-	32
+	# 2
+	# 4
+	# 8
+	# 16
+	# 32
 	# 64
 	# 128
 	# 256
@@ -23,7 +23,7 @@ declare -a batch_sizes=(
 )
 
 NUM_WARMUP=5
-NUM_ITERATIONS=30
+NUM_ITERATIONS=10
 
 HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
