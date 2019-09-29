@@ -42,7 +42,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 
     echo "Running MXNET batchsize=${BATCH_SIZE}"
 
-    for i in $(seq 2 2); do
+    for i in $(seq 19 19); do
         echo "infer using model $i"
         NSIGHT_PATH="${RESULTS_DIR}/$((i + 1))_${BATCH_SIZE}"
         echo "${NSIGHT_PATH}"
