@@ -1,0 +1,890 @@
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89a40021c8)
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89a00021c8)
+i! Time: 2019-09-29T03:22:49 elapsed from start 0.050000 minutes or 3.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+i! Time: 2019-09-29T03:22:49 elapsed from start 0.050000 minutes or 3.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a40024d0)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a0800110)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c6912c0)
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89329bb260)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89329bb2a8)
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c691308)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89329bb2b0)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c691310)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f89329bb2b8)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c691318)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a4c5840)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a40024d0)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a4c5840); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c698760)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a0800110)
+i! Time: 2019-09-29T03:22:50 elapsed from start 0.066667 minutes or 4.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c698760); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894b7aea88)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f8926a542b8)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f894c73e310)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=144
+i!  n: type=int; val=128
+i!  k: type=int; val=48
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=144
+i!  strideA: type=SOME TYPE; val=6912
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8992674c00)
+i!  ldb: type=int; val=48
+i!  strideB: type=SOME TYPE; val=6144
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992a6ac00)
+i!  ldc: type=int; val=144
+i!  strideC: type=SOME TYPE; val=18432
+i!  batchSize: type=int; val=169
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f88a2631920)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=144
+i!  n: type=int; val=128
+i!  k: type=int; val=48
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f899364cc00)
+i!  lda: type=int; val=144
+i!  strideA: type=SOME TYPE; val=6912
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993ac1800)
+i!  ldb: type=int; val=48
+i!  strideB: type=SOME TYPE; val=6144
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993eb7800)
+i!  ldc: type=int; val=144
+i!  strideC: type=SOME TYPE; val=18432
+i!  batchSize: type=int; val=169
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a0800110)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=384
+i!  k: type=int; val=256
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=65536
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8992b00000)
+i!  ldb: type=int; val=256
+i!  strideB: type=SOME TYPE; val=98304
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993880000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=98304
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f894c73e310)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=192
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f89928c0000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=36864
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992dd0000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=49152
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f88a2631920)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=192
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8993490000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993b50000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=36864
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8994060000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=49152
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f894c73e310)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=128
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f89928c0000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=24576
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992c20000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=32768
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf44294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f88a2631920)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f894c73e310); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=128
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4429c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f89930a0000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993760000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=24576
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf44298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993ac0000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=32768
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f88a29d13b0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f88a29d13b0); StreamId=POINTER (IN HEX:0x0x7f88a2631920); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=4096
+i!  n: type=int; val=16
+i!  k: type=int; val=9216
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4726c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f8989200000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=9216
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88ee800000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=9216
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf47268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e8bb0000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=4096
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf46ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=4096
+i!  n: type=int; val=16
+i!  k: type=int; val=4096
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4726c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f88e8c00000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=4096
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88e8bb0000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=4096
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf47268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e812c000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=4096
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf46ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=200
+i!  n: type=int; val=16
+i!  k: type=int; val=4096
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89adf4726c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f88ecc00000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=4096
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88e812c000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=4096
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89adf47268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e8bf0000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=200
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894c669ed0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89adf46ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229305730816; GPU=0; Handle=POINTER (IN HEX:0x0x7f894c669ed0); StreamId=POINTER (IN HEX:0x0x7f89a0800110); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c730)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=144
+i!  n: type=int; val=128
+i!  k: type=int; val=48
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=144
+i!  strideA: type=SOME TYPE; val=6912
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8992674c00)
+i!  ldb: type=int; val=48
+i!  strideB: type=SOME TYPE; val=6144
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992a6ac00)
+i!  ldc: type=int; val=144
+i!  strideC: type=SOME TYPE; val=18432
+i!  batchSize: type=int; val=169
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c790)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=144
+i!  n: type=int; val=128
+i!  k: type=int; val=48
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f899364cc00)
+i!  lda: type=int; val=144
+i!  strideA: type=SOME TYPE; val=6912
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993ac1800)
+i!  ldb: type=int; val=48
+i!  strideB: type=SOME TYPE; val=6144
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993eb7800)
+i!  ldc: type=int; val=144
+i!  strideC: type=SOME TYPE; val=18432
+i!  batchSize: type=int; val=169
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f89a40024d0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=384
+i!  k: type=int; val=256
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=65536
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8992b00000)
+i!  ldb: type=int; val=256
+i!  strideB: type=SOME TYPE; val=98304
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993880000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=98304
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c730)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=192
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f89928c0000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=36864
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992dd0000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=49152
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c790)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=192
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8993490000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993b50000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=36864
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8994060000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=49152
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c730)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=128
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f8992200000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f89928c0000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=24576
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8992c20000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=32768
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad743294)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetStream_v2(cublasContext*, CUstream_st*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  streamId: type=SOME TYPE; val=POINTER (IN HEX:0x0x7f891a56c790)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c730); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmStridedBatched(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const float*, int, long long int, const float*, int, long long int, const float*, float*, int, long long int, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=256
+i!  n: type=int; val=128
+i!  k: type=int; val=192
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74329c)
+i!  A: type=float; val=POINTER (IN HEX:0x0x7f89930a0000)
+i!  lda: type=int; val=256
+i!  strideA: type=SOME TYPE; val=49152
+i!  B: type=float; val=POINTER (IN HEX:0x0x7f8993760000)
+i!  ldb: type=int; val=192
+i!  strideB: type=SOME TYPE; val=24576
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad743298)
+i!  C: type=float; val=POINTER (IN HEX:0x0x7f8993ac0000)
+i!  ldc: type=int; val=256
+i!  strideC: type=SOME TYPE; val=32768
+i!  batchSize: type=int; val=36
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSetMathMode(cublasContext*, cublasMath_t) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f891a575fe0)
+i!  mode: type=cublasMath_t; val=CUBLAS_DEFAULT_MATH(0)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f891a575fe0); StreamId=POINTER (IN HEX:0x0x7f891a56c790); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=4096
+i!  n: type=int; val=16
+i!  k: type=int; val=9216
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74626c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f8989200000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=9216
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88ee800000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=9216
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad746268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e8bb0000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=4096
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad745ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=4096
+i!  n: type=int; val=16
+i!  k: type=int; val=4096
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74626c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f88e8c00000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=4096
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88e8bb0000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=4096
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad746268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e812c000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=4096
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad745ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasSgemmEx(cublasContext*, cublasOperation_t, cublasOperation_t, int, int, int, const float*, const void*, cublasDataType_t, int, const void*, cublasDataType_t, int, const float*, void*, cublasDataType_t, int) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  transa: type=cublasOperation_t; val=CUBLAS_OP_T(1)
+i!  transb: type=cublasOperation_t; val=CUBLAS_OP_N(0)
+i!  m: type=int; val=200
+i!  n: type=int; val=16
+i!  k: type=int; val=4096
+i!  alpha: type=float; val=POINTER (IN HEX:0x0x7f89ad74626c)
+i!  A: type=void; val=POINTER (IN HEX:0x0x7f88ecc00000)
+i!  Atype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  lda: type=int; val=4096
+i!  B: type=void; val=POINTER (IN HEX:0x0x7f88e812c000)
+i!  Btype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldb: type=int; val=4096
+i!  beta: type=float; val=POINTER (IN HEX:0x0x7f89ad746268)
+i!  C: type=void; val=POINTER (IN HEX:0x0x7f88e8bf0000)
+i!  Ctype: type=cudaDataType_t; val=CUDA_R_32F(0)
+i!  ldc: type=int; val=200
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.1) function cublasStatus_t cublasGetMathMode(cublasContext*, cublasMath_t*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x7f894383ce40)
+i!  mode: type=cublasMath_t; val=POINTER (IN HEX:0x0x7f89ad745ecc)
+i! Time: 2019-09-29T03:22:52 elapsed from start 0.100000 minutes or 6.000000 seconds
+i!Process=18050; Thread=140229297338112; GPU=0; Handle=POINTER (IN HEX:0x0x7f894383ce40); StreamId=POINTER (IN HEX:0x0x7f89a40024d0); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
