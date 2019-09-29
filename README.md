@@ -125,7 +125,7 @@ python mxnet/gluon_forward.py --num_warmup=1 --num_iterations=1 --model_name=ale
 python mxnet/local_forward.py --num_warmup=1 --num_iterations=1 --model_name=bvlc_caffenet --model_idx=1 --batch_size=1
 ```
 
-3. Run experiments with scripts
+4. Run experiments with scripts
 
 Run all MXNet models with 
 
