@@ -12,6 +12,16 @@ dir_name = os.path.dirname(file_path)
 os.environ["MXNET_CUDNN_AUTOTUNE_DEFAULT"] = "0"
 
 
+class cuda_profiler_start():
+    import numba.cuda as cuda
+    cuda.profile_start()
+
+
+class cuda_profiler_stop():
+    import numba.cuda as cuda
+    cuda.profile_stop()
+
+
 def xprint(s):
     pass
 
@@ -32,6 +42,8 @@ parser.add_argument('--num_warmup', type=int, required=False, default=5,
                     help='number of warmup iterations to run')
 parser.add_argument('--model_idx', type=int, required=False, default=2,
                     help='model idx')
+parser.add_argument('--profile', type=bool, required=False, default=False,
+                    help='enable profiling')
 opt = parser.parse_args()
 
 model_name = opt.model_name
@@ -41,6 +53,7 @@ input_channels = opt.input_channels
 num_iterations = opt.num_iterations
 num_warmup = opt.num_warmup
 model_idx = opt.model_idx
+profile = opt.profile
 
 ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
 
@@ -84,9 +97,13 @@ for i in range(num_warmup):
     forward_once()
 
 res = []
+if profile:
+    cuda_profiler_start()
 for i in range(num_iterations):
     t = forward_once()
     res.append(t)
+if profile:
+    cuda_profiler_stop()
 
 res = np.multiply(res, 1000)
 

@@ -1,5 +1,7 @@
 # run gluoncv models
 
+from gluoncv.data.transforms.presets.imagenet import transform_eval
+from gluoncv.model_zoo import get_model
 import argparse
 import os
 import time
@@ -8,19 +10,19 @@ import mxnet as mx
 from mxnet import nd, image
 from mxnet.gluon.data.vision import transforms
 from gluoncv.utils import export_block
-# from .nvtx import (profile_range,
-#                    profile_range_push,
-#                    profile_range_pop,
-#                    profile_mark,
-#                    profiled,
-#                    getstats,
-#                    colors)
-# import nvtxpy as nvtx
 
-from gluoncv.model_zoo import get_model
-from gluoncv.data.transforms.presets.imagenet import transform_eval
 
 os.environ["MXNET_CUDNN_AUTOTUNE_DEFAULT"] = "0"
+
+
+class cuda_profiler_start():
+    import numba.cuda as cuda
+    cuda.profile_start()
+
+
+class cuda_profiler_stop():
+    import numba.cuda as cuda
+    cuda.profile_stop()
 
 
 parser = argparse.ArgumentParser(
@@ -39,17 +41,9 @@ parser.add_argument('--num_warmup', type=int, required=False, default=5,
                     help='number of warmup iterations to run')
 parser.add_argument('--model_idx', type=int, required=False, default=1,
                     help='model idx')
+parser.add_argument('--profile', type=bool, required=False, default=False,
+                    help='enable profiling')
 opt = parser.parse_args()
-
-
-class cuda_profiler_start():
-    import numba.cuda as cuda
-    cuda.profile_start()
-
-
-class cuda_profiler_stop():
-    import numba.cuda as cuda
-    cuda.profile_stop()
 
 
 # Load Model
@@ -60,6 +54,7 @@ input_channels = opt.input_channels
 num_iterations = opt.num_iterations
 num_warmup = opt.num_warmup
 model_idx = opt.model_idx
+profile = opt.profile
 
 pretrained = True
 ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
@@ -86,9 +81,13 @@ for i in range(num_warmup):
     forward_once()
 
 res = []
+if profile:
+    cuda_profiler_start()
 for i in range(num_iterations):
     t = forward_once()
     res.append(t)
+if profile:
+    cuda_profiler_stop()
 
 res = np.multiply(res, 1000)
 

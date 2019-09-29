@@ -114,7 +114,7 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
     try:
         if backend.name() == "mxnet" and batch_size > 1:
             model = utils.fix_batch_size(model)
-        backend.load(model, enable_profiling=profile)
+        backend.load(model, cuda_profile=profile)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)

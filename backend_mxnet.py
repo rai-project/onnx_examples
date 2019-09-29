@@ -11,7 +11,7 @@ import gluoncv
 from mxnet import gluon
 from image_net_labels import labels
 import backend
-# from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
+from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 # see https://github.com/awslabs/deeplearning-benchmark/blob/master/onnx_benchmark/import_benchmarkscript.py
 
@@ -24,6 +24,7 @@ class BackendMXNet(backend.Backend):
         self.model_info = None
         self.ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
         self.enable_profiling = False
+        self.cuda_profile = False
 
     def name(self):
         return "mxnet"
@@ -31,9 +32,10 @@ class BackendMXNet(backend.Backend):
     def version(self):
         return mx.__version__
 
-    def load(self, model, enable_profiling=False):
+    def load(self, model, enable_profiling=False, cuda_profile=False):
         self.model_info = model
         self.enable_profiling = enable_profiling
+        self.cuda_profile = cuda_profile
 
         # print(model.path)
         # print(model.name)
@@ -124,12 +126,14 @@ class BackendMXNet(backend.Backend):
         res = []
         if self.enable_profiling:
             profiler.set_state("run")
-        # cuda_profiler_start()
+        if self.cuda_profile:
+            cuda_profiler_start()
         for i in range(num_iterations):
             t = self.forward_once(img, validate=validate)
             # utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
-        # cuda_profiler_stop()
+        if self.cuda_profile:
+            cuda_profiler_stop()
         if self.enable_profiling:
             mx.nd.waitall()
             profiler.set_state("stop")
