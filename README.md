@@ -162,8 +162,16 @@ nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print
 
 5.  Profile using Nsight
 
+Output to `out.qdstrm` to be visualized in Nsight GUI,
+
 ```
-nsys profile --trace=cuda,cudnn,cublas python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
+nsys profile --trace=cuda,cudnn,cublas --output=out.qdstrm python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
+```
+
+Create a sqlite database based on the data collected. 
+
+```
+nsys profile --trace=cuda,cudnn,cublas --output=out.qdstrm --export=sqlite python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
 ```
 
 ### TensorRT
