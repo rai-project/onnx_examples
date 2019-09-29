@@ -37,12 +37,12 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
     BATCH_SIZE_OPT=--batch_size=${BATCH_SIZE}
 
     echo "Running MXNET batchsize=${BATCH_SIZE}"
-    rm -fr ${OUTPUTFILE}
 
     for i in $(seq 0 29); do
         echo "infer using model $i"
-        CUDNN_LOGDEST_DBG_PATH="${RESULTS_DIR}/${i+1}_${BATCH_SIZE}.log"
+        CUDNN_LOGDEST_DBG_PATH="${RESULTS_DIR}/$((i + 1))_${BATCH_SIZE}.log"
         echo "${CUDNN_LOGDEST_DBG_PATH}"
+        rm -f ${CUDNN_LOGDEST_DBG_PATH}
 
         # run mxnet models instead of onnx models for batch size > 1 for some models
         if [[ "$BATCH_SIZE" -ne 1 ]]; then
