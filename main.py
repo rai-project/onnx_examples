@@ -73,7 +73,7 @@ def get_backend(backend):
 
 
 @click.command()
-@click.option("--backend", type=click.STRING, default="onnxruntime")
+@click.option("--backend", type=click.STRING, default="mxnet")
 @click.option("--batch_size", type=click.INT, default=1)
 @click.option("--num_warmup", type=click.INT, default=2)
 @click.option("--num_iterations", type=click.INT, default=10)

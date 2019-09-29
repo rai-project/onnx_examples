@@ -126,6 +126,7 @@ class BackendMXNet(backend.Backend):
         res = []
         if self.enable_profiling:
             profiler.set_state("run")
+        print("cuda_profile === " + self.cuda_profile)
         if self.cuda_profile:
             cuda_profiler_start()
         for i in range(num_iterations):
