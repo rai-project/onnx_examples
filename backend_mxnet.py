@@ -1,3 +1,4 @@
+import os
 from PIL import Image
 import mxnet as mx
 from mxnet.contrib import onnx as onnx_mxnet
