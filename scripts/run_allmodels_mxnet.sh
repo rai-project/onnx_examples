@@ -10,11 +10,11 @@ export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
 	1
-	# 2
-	# 4
-	# 8
-	# 16
-	# 32
+	2
+	4
+	8
+	16
+	32
 	# 64
 	# 128
 	# 256
@@ -22,12 +22,12 @@ declare -a batch_sizes=(
 	# 1024
 )
 
-NUM_WARMUP=1
-NUM_ITERATIONS=9
+NUM_WARMUP=5
+NUM_ITERATIONS=30
 
 HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
-RESULTS_DIR=${DIR}/../results/mxnet2/${GPU_NAME}
+RESULTS_DIR=${DIR}/../results/mxnet/${GPU_NAME}
 
 mkdir -p ${RESULTS_DIR}
 nvidia-smi -x -q -a >${RESULTS_DIR}/nvidia_smi.xml
@@ -40,7 +40,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
 
-	for i in $(seq 3 3); do
+	for i in $(seq 0 29); do
 		echo "infer using model $i"
 
 		# run mxnet models instead of onnx models for batch size > 1 for some models
@@ -71,6 +71,8 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 		# run onnx models
 		if [[ "$i" -eq 0 ]]; then # arcface
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
+		elif [[ "$i" -eq 6 ]]; then # duc
+			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i --input_dim=800 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 7 ]]; then # emotion_ferplus
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i --input_dim=64 --input_channels=1 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 10 ]]; then # mnist

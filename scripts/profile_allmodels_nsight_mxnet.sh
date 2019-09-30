@@ -11,7 +11,7 @@ export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
-    # 1
+    1
     # 2
     # 4
     # 8
@@ -42,7 +42,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 
     echo "Running MXNET batchsize=${BATCH_SIZE}"
 
-    for i in $(seq 0 29); do
+    for i in $(seq 6 6); do
         echo "infer using model $i"
         NSIGHT_PATH="${RESULTS_DIR}/$((i + 1))_${BATCH_SIZE}_${NUM_WARMUP}_${NUM_ITERATIONS}"
         echo "${NSIGHT_PATH}"
@@ -76,6 +76,8 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
         # run onnx models
         if [[ "$i" -eq 0 ]]; then # arcface
             ${NSYS} profile --force-overwrite=true --trace=cuda,cudnn,cublas,nvtx --sample=none --output=${NSIGHT_PATH} --export=sqlite python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --profile --model_idx=$i --input_dim=112
+        elif [[ "$i" -eq 6 ]]; then # duc
+            ${NSYS} profile --force-overwrite=true --trace=cuda,cudnn,cublas,nvtx --sample=none --output=${NSIGHT_PATH} --export=sqlite python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --profile --model_idx=$i --input_dim=800
         elif [[ "$i" -eq 7 ]]; then # emotion_ferplus
             ${NSYS} profile --force-overwrite=true --trace=cuda,cudnn,cublas,nvtx --sample=none --output=${NSIGHT_PATH} --export=sqlite python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --profile --model_idx=$i --input_dim=64 --input_channels=1
         elif [[ "$i" -eq 10 ]]; then # mnist
