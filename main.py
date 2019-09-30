@@ -97,7 +97,7 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
     models = get_models(batch_size=batch_size)
     model = models[model_idx]
 
-    if model.path is None:
+    if model.path is None and model.name != "Shufflenet":
         raise Exception("unable to find model in {}".format(model.name))
 
     utils.debug("Using {} model".format(model.name))
