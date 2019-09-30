@@ -1,3 +1,12 @@
+pyenv virtualenv miniconda3-4.3.30 dlperf
+pyenv activate dlperf
+
+pip install onnx onnxmltools
+pip install future click numba Pillow
+pip install onnxruntime-gpu
+pip install mxnet-cu101mkl
+pip install gluoncv
+
 export MXNET_CUDA_ALLOW_TENSOR_CORE=0
 export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 
@@ -11,3 +20,9 @@ export MXNET_EXEC_BULK_EXEC_TRAIN=0
 export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:/home/ubuntu/.gvm/pkgsets/go1.12/global/overlay/lib
 
 export PATH=/opt/nvidia/nsight-systems-cli/2019.5.1/bin:$PATH
+
+# download models
+
+mc cp -r s3/store.carml.org/dlperf/mxnet_models ./mxnet
+
+mc cp -r s3/store.carml.org/dlperf/onnx_models/ ~/data/carml/dlperf/
