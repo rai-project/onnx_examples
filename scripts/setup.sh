@@ -23,6 +23,10 @@ export PATH=/opt/nvidia/nsight-systems-cli/2019.5.1/bin:$PATH
 
 # download models
 
-mc cp -r s3/store.carml.org/dlperf/mxnet_models ./mxnet
+if [ ! -d "./mxnet" ]; then
+    mc cp -r s3/store.carml.org/dlperf/mxnet_models ./mxnet
+fi
 
-mc cp -r s3/store.carml.org/dlperf/onnx_models/ ~/data/carml/dlperf/
+if [ ! -d "~/data/carml/dlperf/" ]; then
+    mc cp -r s3/store.carml.org/dlperf/onnx_models/ ~/data/carml/dlperf/
+fi
