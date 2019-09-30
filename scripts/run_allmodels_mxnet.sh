@@ -10,11 +10,11 @@ export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
 	1
-	2
-	4
-	8
-	16
-	32
+	# 2
+	# 4
+	# 8
+	# 16
+	# 32
 	# 64
 	# 128
 	# 256
@@ -40,7 +40,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
 
-	for i in $(seq 0 29); do
+	for i in $(seq 10 10); do
 		echo "infer using model $i"
 
 		# run mxnet models instead of onnx models for batch size > 1 for some models
