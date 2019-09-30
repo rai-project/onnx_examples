@@ -48,11 +48,11 @@ class BackendMXNet(backend.Backend):
 
         if model.name == "Emotion-FerPlus":
             # download from https://github.com/awslabs/mxnet-model-server/blob/master/docs/model_zoo.md
-            params_path = file_path + "mxnet/mxnet_models/FERPlus-0000.params"
-            symbol_path = file_path + "mxnet/mxnet_models/FERPlus-symbol.json"
+            params_path = dir_name + "/mxnet/mxnet_models/FERPlus-0000.params"
+            symbol_path = dir_name + "/mxnet/mxnet_models/FERPlus-symbol.json"
 
             self.sym, self.arg, self.aux = mx.model.load_checkpoint(
-                file_path + "mxnet/mxnet_models/FERPlus", 0)
+                dir_name + "/mxnet/mxnet_models/FERPlus", 0)
         model_metadata = onnx_mxnet.get_model_metadata(model.path)
         self.data_names = [
             graph_input
