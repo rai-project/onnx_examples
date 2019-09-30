@@ -11,12 +11,12 @@ export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
-    1
-    # 2
-    # 4
-    # 8
-    # 16
-    32
+    # 1
+    2
+    4
+    8
+    16
+    # 32
     # 64
     # 128
     # 256
@@ -42,7 +42,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 
     echo "Running MXNET batchsize=${BATCH_SIZE}"
 
-    for i in $(seq 6 6); do
+    for i in $(seq 0 29); do
         echo "infer using model $i"
         NSIGHT_PATH="${RESULTS_DIR}/$((i + 1))_${BATCH_SIZE}_${NUM_WARMUP}_${NUM_ITERATIONS}"
         echo "${NSIGHT_PATH}"
