@@ -74,6 +74,9 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 		# run onnx models
 		if [[ "$i" -eq 0 ]]; then # arcface
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i --input_dim=112 >>${OUTPUTFILE}
+		elif [[ "$i" -eq 10 ]]; then # mnist
+			python mxnet/local_forward.py ${BATCH_SIZE_OPT} --model_name=mnist --model_idx=$i --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --input_dim=28 --input_channels=1 >>${OUTPUTFILE}
+				continue
 		elif [[ "$i" -eq 6 ]]; then # duc
 			python main.py ${BATCH_SIZE_OPT} --backend=mxnet --short_output --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$i --input_dim=800 >>${OUTPUTFILE}
 		elif [[ "$i" -eq 7 ]]; then # emotion_ferplus
