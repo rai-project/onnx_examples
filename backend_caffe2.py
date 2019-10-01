@@ -16,12 +16,14 @@ from caffe2.python.onnx.backend import Caffe2Backend as c2
 from caffe2.proto import caffe2_pb2
 from onnx.backend.base import Backend, Device, DeviceType, namedtupledict
 
+from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 import backend
 
 
 def get_device_option(device):
-    m = {DeviceType.CPU: caffe2_pb2.CPU, DeviceType.CUDA: workspace.GpuDeviceType}
+    m = {DeviceType.CPU: caffe2_pb2.CPU,
+         DeviceType.CUDA: workspace.GpuDeviceType}
     return core.DeviceOption(m[device.type], device.device_id)
 
 
@@ -43,7 +45,7 @@ class BackendCaffe2(backend.Backend):
     def version(self):
         return torch.__version__
 
-    def loadx(self, model, enable_profiling=False):
+    def load(self, model, enable_profiling=False, cuda_profile=False, batch_size=1):
         onnx_model_proto = ModelProto()
         with open(model.path, "rb") as onnx_model:
             onnx_model_proto.ParseFromString(onnx_model.read())
@@ -77,7 +79,8 @@ class BackendCaffe2(backend.Backend):
         for value_info in self.model.graph.input:
             if value_info.name in initialized:
                 continue
-            shape = list(d.dim_value for d in value_info.type.tensor_type.shape.dim)
+            shape = list(
+                d.dim_value for d in value_info.type.tensor_type.shape.dim)
             ws.FeedBlob(
                 value_info.name,
                 np.ones(
@@ -89,8 +92,8 @@ class BackendCaffe2(backend.Backend):
                 device_option,
             )
 
-        self.uninitialized = [value_info.name for value_info in self.model.graph.input if value_info.name not in initialized]
-
+        self.uninitialized = [
+            value_info.name for value_info in self.model.graph.input if value_info.name not in initialized]
 
         ws.CreateNet(init_net)
         ws.RunNet(init_net.name)
@@ -112,7 +115,7 @@ class BackendCaffe2(backend.Backend):
         self.init_net = init_net
         self.predict_net = predict_net
 
-    def load(self, model, enable_profiling=False):
+    def load(self, model, enable_profiling=False, cuda_profile=False):
         self.model = onnx.load(model.path)
         self.inputs = []
         initializers = set()
@@ -124,7 +127,8 @@ class BackendCaffe2(backend.Backend):
         self.outputs = []
         for i in self.model.graph.output:
             self.outputs.append(i.name)
-        self.session = caffe2.python.onnx.backend.prepare(self.model, self.device)
+        self.session = caffe2.python.onnx.backend.prepare(
+            self.model, self.device)
         self.enable_profiling = enable_profiling
 
     def __del__(self):
@@ -140,7 +144,7 @@ class BackendCaffe2(backend.Backend):
         end = time.time()  # stop timer
         return end - start
 
-    def forward(self, img, warmup=True, num_warmup=10, num_iterations=10):
+    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False):
         if warmup:
             for i in range(num_warmup):
                 self.forward_once(img)

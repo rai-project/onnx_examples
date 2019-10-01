@@ -50,9 +50,11 @@ class BackendOnnxruntime(backend.Backend):
         run_options = onnxruntime.RunOptions()
         if utils.DEBUG:
             run_options.run_log_severity_level = 0
+        input_feeds = {i.name: np.zeros(shape=[d if (d and d > 0) else 1 for d in i.shape], dtype=np.float32)
+                       for i in self.session.get_inputs()}
         start = time.time()
         result = self.session.run(
-            self.outputs, {self.inputs[0]: img}, run_options=run_options)
+            self.outputs, input_feeds, run_options=run_options)
         end = time.time()  # stop timer
         return end - start
 
