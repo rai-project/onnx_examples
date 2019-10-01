@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pyenv virtualenv miniconda3-4.3.30 dlperf
 pyenv activate dlperf
 
