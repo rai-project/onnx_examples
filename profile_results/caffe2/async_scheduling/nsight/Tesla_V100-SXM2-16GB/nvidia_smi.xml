@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE nvidia_smi_log SYSTEM "nvsmi_device_v10.dtd">
 <nvidia_smi_log>
-	<timestamp>Thu Oct  3 01:53:12 2019</timestamp>
+	<timestamp>Thu Oct  3 02:40:49 2019</timestamp>
 	<driver_version>430.26</driver_version>
 	<cuda_version>10.2</cuda_version>
 	<attached_gpus>1</attached_gpus>
@@ -17,8 +17,8 @@
 			<current_dm>N/A</current_dm>
 			<pending_dm>N/A</pending_dm>
 		</driver_model>
-		<serial>0322218188302</serial>
-		<uuid>GPU-46b2987e-32f9-1c45-ec3d-e85d88b45143</uuid>
+		<serial>0320219066743</serial>
+		<uuid>GPU-6b821ffb-5b5d-3147-b546-c4590b362721</uuid>
 		<minor_number>0</minor_number>
 		<vbios_version>88.00.4F.00.09</vbios_version>
 		<multigpu_board>No</multigpu_board>
@@ -170,17 +170,17 @@
 			<pending_blacklist>No</pending_blacklist>
 		</retired_pages>
 		<temperature>
-			<gpu_temp>41 C</gpu_temp>
+			<gpu_temp>47 C</gpu_temp>
 			<gpu_temp_max_threshold>90 C</gpu_temp_max_threshold>
 			<gpu_temp_slow_threshold>87 C</gpu_temp_slow_threshold>
 			<gpu_temp_max_gpu_threshold>83 C</gpu_temp_max_gpu_threshold>
-			<memory_temp>39 C</memory_temp>
+			<memory_temp>43 C</memory_temp>
 			<gpu_temp_max_mem_threshold>85 C</gpu_temp_max_mem_threshold>
 		</temperature>
 		<power_readings>
 			<power_state>P0</power_state>
 			<power_management>Supported</power_management>
-			<power_draw>25.95 W</power_draw>
+			<power_draw>26.00 W</power_draw>
 			<power_limit>300.00 W</power_limit>
 			<default_power_limit>300.00 W</default_power_limit>
 			<enforced_power_limit>300.00 W</enforced_power_limit>

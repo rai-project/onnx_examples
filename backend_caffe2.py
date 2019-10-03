@@ -22,8 +22,7 @@ import backend
 
 
 def get_device_option(device):
-    m = {DeviceType.CPU: caffe2_pb2.CPU,
-         DeviceType.CUDA: workspace.GpuDeviceType}
+    m = {DeviceType.CPU: caffe2_pb2.CPU, DeviceType.CUDA: workspace.GpuDeviceType}
     return core.DeviceOption(m[device.type], device.device_id)
 
 
@@ -68,7 +67,7 @@ class BackendCaffe2(backend.Backend):
             onnx_model_proto, device=self.device
         )
 
-        init_net.Proto().type = "parallel"
+        init_net.Proto().type = "async_scheduling"
 
         ws = Workspace()
         device_option = get_device_option(Device(self.device))
@@ -81,8 +80,7 @@ class BackendCaffe2(backend.Backend):
         for value_info in self.model.graph.input:
             if value_info.name in initialized:
                 continue
-            shape = list(
-                d.dim_value for d in value_info.type.tensor_type.shape.dim)
+            shape = list(d.dim_value for d in value_info.type.tensor_type.shape.dim)
             ws.FeedBlob(
                 value_info.name,
                 np.ones(
@@ -95,7 +93,10 @@ class BackendCaffe2(backend.Backend):
             )
 
         self.uninitialized = [
-            value_info.name for value_info in self.model.graph.input if value_info.name not in initialized]
+            value_info.name
+            for value_info in self.model.graph.input
+            if value_info.name not in initialized
+        ]
 
         ws.CreateNet(init_net)
         ws.RunNet(init_net.name)
@@ -106,9 +107,7 @@ class BackendCaffe2(backend.Backend):
         enable_profiling = False
         if enable_profiling:
             print(type(predict_net))
-            self.profile_observer = predict_net.AddObserver(
-                "ProfileObserver"
-            )
+            self.profile_observer = predict_net.AddObserver("ProfileObserver")
             predict_net.AddObserver("TimeObserver")
 
         self.session = ws
@@ -117,7 +116,7 @@ class BackendCaffe2(backend.Backend):
         self.init_net = init_net
         self.predict_net = predict_net
 
-    def load(self, model, enable_profiling=False, cuda_profile=False):
+    def loadx(self, model, enable_profiling=False, cuda_profile=False):
         self.model = onnx.load(model.path)
         self.inputs = []
         initializers = set()
@@ -129,8 +128,7 @@ class BackendCaffe2(backend.Backend):
         self.outputs = []
         for i in self.model.graph.output:
             self.outputs.append(i.name)
-        self.session = caffe2.python.onnx.backend.prepare(
-            self.model, self.device)
+        self.session = caffe2.python.onnx.backend.prepare(self.model, self.device)
         self.enable_profiling = enable_profiling
 
     def __del__(self):
@@ -146,7 +144,9 @@ class BackendCaffe2(backend.Backend):
         end = time.time()  # stop timer
         return end - start
 
-    def forward(self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False):
+    def forward(
+        self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False
+    ):
         if warmup:
             for i in range(num_warmup):
                 self.forward_once(img)
