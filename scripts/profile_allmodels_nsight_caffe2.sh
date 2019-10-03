@@ -19,7 +19,7 @@ NUM_ITERATIONS=9
 
 HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
-RESULTS_DIR=profile_results/caffe2/nsight/${GPU_NAME}
+RESULTS_DIR=profile_results/caffe2/parallel/nsight/${GPU_NAME}
 
 NSYS=/opt/nvidia/nsight-systems/2019.5.1/bin/nsys
 

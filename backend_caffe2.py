@@ -68,6 +68,8 @@ class BackendCaffe2(backend.Backend):
             onnx_model_proto, device=self.device
         )
 
+        init_net.Proto().type = "parallel"
+
         ws = Workspace()
         device_option = get_device_option(Device(self.device))
 
