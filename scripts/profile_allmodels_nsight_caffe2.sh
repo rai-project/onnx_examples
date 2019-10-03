@@ -32,7 +32,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 
     echo "Running caffe2 batchsize=${BATCH_SIZE}"
 
-    for i in $(seq 0 29); do
+    for i in $(seq 17 17); do
         echo "infer using model $i"
         NSIGHT_PATH="${RESULTS_DIR}/$((i + 1))_${BATCH_SIZE}_${NUM_WARMUP}_${NUM_ITERATIONS}"
         echo "${NSIGHT_PATH}"
