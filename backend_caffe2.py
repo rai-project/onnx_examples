@@ -101,7 +101,7 @@ class BackendCaffe2(backend.Backend):
         ws.CreateNet(predict_net)
 
         # predict_net = core.Net(predict_net)
-
+        enable_profiling = False
         if enable_profiling:
             print(type(predict_net))
             self.profile_observer = predict_net.AddObserver(
