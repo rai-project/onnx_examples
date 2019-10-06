@@ -4,6 +4,7 @@ import backend
 import numpy as np
 
 import utils
+from cuda_profiler import cuda_profiler_start, cuda_profiler_stop
 
 
 class BackendOnnxruntime(backend.Backend):
@@ -17,11 +18,13 @@ class BackendOnnxruntime(backend.Backend):
     def version(self):
         return onnxruntime.__version__
 
-    def load(self, model, enable_profiling=False, batch_size=1):
+    def load(self, model, enable_profiling=False, cuda_profile=False, batch_size=1):
         utils.debug("running on {}".format(onnxruntime.get_device()))
         utils.debug("model path = {}".format(model.path))
         self.model = model
         self.enable_profiling = enable_profiling
+        self.cuda_profile = cuda_profile
+
         # https://microsoft.github.io/onnxruntime/auto_examples/plot_profiling.html
         options = onnxruntime.SessionOptions()
         if enable_profiling:
@@ -47,9 +50,11 @@ class BackendOnnxruntime(backend.Backend):
         run_options = onnxruntime.RunOptions()
         if utils.DEBUG:
             run_options.run_log_severity_level = 0
+        input_feeds = {i.name: np.zeros(shape=[d if (d and d > 0) else 1 for d in i.shape], dtype=np.float32)
+                       for i in self.session.get_inputs()}
         start = time.time()
         result = self.session.run(
-            self.outputs, {self.inputs[0]: img}, run_options=run_options)
+            self.outputs, input_feeds, run_options=run_options)
         end = time.time()  # stop timer
         return end - start
 
@@ -59,8 +64,12 @@ class BackendOnnxruntime(backend.Backend):
             for ii in range(num_warmup,):
                 self.forward_once(img)
         res = []
+        if self.cuda_profile:
+            cuda_profiler_start()
         for i in range(num_iterations):
             t = self.forward_once(img)
             utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
+        if self.cuda_profile:
+            cuda_profiler_stop()
         return res

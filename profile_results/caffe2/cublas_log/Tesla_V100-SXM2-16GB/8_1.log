@@ -1,0 +1,15 @@
+I! cuBLAS (v10.0) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x555557ccdc48)
+i! Time: 2019-10-03T01:16:05 elapsed from start 0.183333 minutes or 11.000000 seconds
+i!Process=11392; Thread=140737353922368; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.0) function cublasStatus_t cublasCreate_v2(cublasContext**) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x55555cb33da8)
+i! Time: 2019-10-03T01:16:05 elapsed from start 0.183333 minutes or 11.000000 seconds
+i!Process=11392; Thread=140737353922368; GPU=0; Handle=POINTER (IN HEX:0x(nil))
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
+I! cuBLAS (v10.0) function cublasStatus_t cublasDestroy_v2(cublasContext*) called:
+i!  handle: type=cublasHandle_t; val=POINTER (IN HEX:0x0x5555fc251640)
+i! Time: 2019-10-03T01:16:06 elapsed from start 0.200000 minutes or 12.000000 seconds
+i!Process=11392; Thread=140737353922368; GPU=0; Handle=POINTER (IN HEX:0x0x5555fc251640); StreamId=POINTER (IN HEX:0x(nil)) (defaultStream); MathMode=CUBLAS_DEFAULT_MATH
+i! COMPILED WITH: GNU GCC/G++ / 4.1.2 20080704 (Red Hat 4.1.2-48)
