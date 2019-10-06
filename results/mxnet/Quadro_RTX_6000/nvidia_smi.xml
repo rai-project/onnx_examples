@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE nvidia_smi_log SYSTEM "nvsmi_device_v10.dtd">
 <nvidia_smi_log>
-	<timestamp>Sun Oct  6 13:20:55 2019</timestamp>
+	<timestamp>Sun Oct  6 13:21:40 2019</timestamp>
 	<driver_version>430.26</driver_version>
 	<cuda_version>10.2</cuda_version>
 	<attached_gpus>1</attached_gpus>
@@ -148,7 +148,7 @@
 		<power_readings>
 			<power_state>P2</power_state>
 			<power_management>Supported</power_management>
-			<power_draw>61.51 W</power_draw>
+			<power_draw>61.18 W</power_draw>
 			<power_limit>260.00 W</power_limit>
 			<default_power_limit>260.00 W</default_power_limit>
 			<enforced_power_limit>260.00 W</enforced_power_limit>
