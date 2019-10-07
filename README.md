@@ -174,6 +174,10 @@ Create a sqlite database based on the data collected.
 nsys profile --trace=cuda,cudnn,cublas --output=out.qdstrm --export=sqlite python main.py --backend=mxnet --num_warmup=1 --num_iterations=1 --model_idx=1
 ```
 
+### MXNET Optimization
+
+- https://gist.github.com/abduld/4b82fac0906b27ebc63883005bc2c1a8
+
 ### TensorRT
 
 1.  Download TensorRT 5.1.x.x for Ubuntu 18.04 and CUDA 10.1 tar package from https://developer.nvidia.com/nvidia-tensorrt-download.
