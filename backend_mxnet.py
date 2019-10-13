@@ -36,7 +36,7 @@ class BackendMXNet(backend.Backend):
     def version(self):
         return mx.__version__
 
-    def load(self, model, enable_profiling=False, cuda_profile=False):
+    def load(self, model, enable_profiling=False, cuda_profile=False, dtype="float32"):
         self.model_info = model
         self.enable_profiling = enable_profiling
         self.cuda_profile = cuda_profile
@@ -44,6 +44,7 @@ class BackendMXNet(backend.Backend):
         # print(model.path)
         # print(model.name)
 
+        self.dtype = dtype
         self.sym, self.arg, self.aux = onnx_mxnet.import_model(model.path)
 
         if model.name == "Emotion-FerPlus":
@@ -63,21 +64,27 @@ class BackendMXNet(backend.Backend):
         self.graph_outputs = self.sym.list_outputs()
 
         self.model = gluon.nn.SymbolBlock(
-            outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype='float32'))
+            outputs=self.sym, inputs=mx.sym.var(self.data_names[0], dtype=dtype))
+        self.model.cast(self.dtype)
         net_params = self.model.collect_params()
         for param in self.arg:
             if param in net_params:
-                net_params[param]._load_init(self.arg[param], ctx=self.ctx)
+                net_params[param]._load_init(self.arg[param], ctx=self.ctx, cast_dtype=True)
         for param in self.aux:
             if param in net_params:
-                net_params[param]._load_init(self.aux[param], ctx=self.ctx)
+                net_params[param]._load_init(self.aux[param], ctx=self.ctx, cast_dtype=True)
 
         if model.name == "Shufflenet":
             # download from https://github.com/RoGoSo/shufflenet-gluon/blob/master/model.py
             self.model = ShuffleNet()
             self.model.initialize(ctx=self.ctx)
 
+        self.model.cast(self.dtype)
+        if self.dtype == "float16":
+            self.model.collect_params().initialize(ctx=mx.gpu(), verbose=False, force_reinit=True)
         self.model.hybridize(static_alloc=True, static_shape=True)
+        if self.dtype == "float16":
+            self.model.collect_params().initialize(ctx=mx.gpu(), verbose=False, force_reinit=True)
         # mx.visualization.plot_network( self.sym,  node_attrs={"shape": "oval", "fixedsize": "false"})
 
         if enable_profiling:
@@ -97,7 +104,7 @@ class BackendMXNet(backend.Backend):
             results.extend([o for o in outputs.asnumpy()])
         return np.array(results)
 
-    def forward_once(self, input, validate=False):
+    def forward_once(self, input):
         if self.is_run:
             mx.nd.waitall()
             self.is_run = True
@@ -105,19 +112,13 @@ class BackendMXNet(backend.Backend):
         prob = self.model.forward(input)
         mx.nd.waitall()
         end = time.time()  # stop timer
-        if validate:
-            prob = prob.asnumpy()
-            prob = np.squeeze(prob)
-            a = np.argsort(prob)[::-1]
-            for i in a[0:5]:
-                print("probability=%f, class=%s" % (prob[i], labels[i]))
         return end - start
 
     def transform(self, img):
-        return np.expand_dims(img, axis=0).astype(np.float32)
+        return np.expand_dims(img, axis=0).astype(self.dtype)
 
     def forward(self, img, warmup=True, num_warmup=100, num_iterations=100, validate=False):
-        img = mx.nd.array(img, ctx=self.ctx, dtype="float32")
+        img = mx.nd.array(img, ctx=self.ctx, dtype=self.dtype).astype(self.dtype)
         utils.debug("image_shape={}".format(np.shape(img)))
         # utils.debug("datanames={}".format(self.data_names))
         # utils.debug("datashapes={}".format(data_shapes))
@@ -133,7 +134,7 @@ class BackendMXNet(backend.Backend):
         if self.cuda_profile:
             cuda_profiler_start()
         for i in range(num_iterations):
-            t = self.forward_once(img, validate=validate)
+            t = self.forward_once(img)
             # utils.debug("processing iteration = {} which took {}".format(i, t))
             res.append(t)
         if self.cuda_profile:

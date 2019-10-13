@@ -80,6 +80,7 @@ def get_backend(backend):
 @click.option("--input_dim", type=click.INT, default=224)
 @click.option("--input_channels", type=click.INT, default=3)
 @click.option("--model_idx", type=click.INT, default=0)
+@click.option("--dtype", type=click.STRING, default="float32")
 @click.option("--profile/--no-profile", help="don't perform layer-wise profiling", default=False)
 @click.option(
     "--debug/--no-debug", help="print debug messages to stderr.", default=False
@@ -90,7 +91,7 @@ def get_backend(backend):
 @click.option("--validate/--no-validate", help="don't validate output results", default=False)
 @click.pass_context
 @click.version_option()
-def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, profile, debug, quiet, short_output, output, validate):
+def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_channels, model_idx, dtype, profile, debug, quiet, short_output, output, validate):
     utils.DEBUG = debug
     utils.QUIET = quiet
 
@@ -109,12 +110,12 @@ def main(ctx, backend, batch_size, num_warmup, num_iterations, input_dim, input_
         sys.exit(1)
 
     img = input_image.get(model, input_dim, input_channels,
-                          batch_size=batch_size)
+                          batch_size=batch_size, dtype=dtype)
 
     try:
         if backend.name() == "mxnet" and batch_size > 1:
             model = utils.fix_batch_size(model)
-        backend.load(model, cuda_profile=profile)
+        backend.load(model, dtype=dtype, cuda_profile=profile)
     except Exception as err:
         traceback.print_exc()
         sys.exit(1)

@@ -6,7 +6,7 @@ pyenv activate dlperf
 pip install onnx onnxmltools
 pip install future click numba Pillow
 pip install onnxruntime-gpu
-pip install mxnet-cu101mkl
+# pip install mxnet-cu101mkl
 pip install gluoncv
 
 export MXNET_CUDA_ALLOW_TENSOR_CORE=0
