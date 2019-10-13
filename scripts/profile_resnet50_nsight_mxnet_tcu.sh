@@ -49,4 +49,7 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
     rm -f ${CUDNN_LOGDEST_DBG_PATH}
 
     ${NSYS} profile --force-overwrite=true --trace=cuda,cudnn,cublas,nvtx --sample=none --output=${NSIGHT_PATH} --export=sqlite  python tcu/run_mxnet.py ${BATCH_SIZE_OPT} --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$MODEL_IDX
+
+    gzip ${NSIGHT_PATH}.qdrep
+    gzip ${NSIGHT_PATH}.sqlite
 done
