@@ -25,6 +25,6 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 	echo "Running MXNET batchsize=${BATCH_SIZE}"
 	rm -fr ${OUTPUTFILE}
 	rm -fr ${FP16OUTPUTFILE}
-    MXNET_CUDA_ALLOW_TENSOR_CORE=1 MXNET_CUDA_TENSOR_OP_MATH_ALLOW_CONVERSION=1 python main.py --dtype="float16" --batch_size=${BATCH_SIZE} --backend=mxnet --num_warmup=5 --num_iterations=30 --model_idx=16 --debug >>${FP16OUTPUTFILE}
+    # MXNET_CUDA_ALLOW_TENSOR_CORE=1 MXNET_CUDA_TENSOR_OP_MATH_ALLOW_CONVERSION=1 python main.py --dtype="float16" --batch_size=${BATCH_SIZE} --backend=mxnet --num_warmup=5 --num_iterations=30 --model_idx=16 --debug >>${FP16OUTPUTFILE}
     python main.py --dtype="float32" --batch_size=${BATCH_SIZE} --backend=mxnet --num_warmup=5 --num_iterations=30 --model_idx=16 --debug >>${OUTPUTFILE}
 done

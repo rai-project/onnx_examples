@@ -57,7 +57,7 @@ def get_image(model, input_dim, input_channels, batch_size=8, dtype="float32"):
 
 
 def get_arcface_input(model, input_dim, batch_size=8, dtype="float32"):
-    aligned = np.load("inputs/arcface_input.npy", dtype=dtype)
+    aligned = np.load("inputs/arcface_input.npy")
     input_blob = [aligned for i in range(batch_size)]
     return input_blob
 
