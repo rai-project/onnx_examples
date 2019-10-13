@@ -230,7 +230,7 @@ class ResNetV1(HybridBlock):
                                                    norm_layer=norm_layer, norm_kwargs=norm_kwargs))
             self.features.add(nn.GlobalAvgPool2D(layout="NHWC"))
 
-            self.output = nn.Dense(classes, in_units=channels[-1])
+            self.output = nn.Dense(classes, in_units=channels[-1], dtype="float16")
 
     def _make_layer(self, block, layers, channels, stride, stage_index, in_channels=0,
                     last_gamma=False, use_se=False, norm_layer=BatchNorm, norm_kwargs=None):
@@ -304,19 +304,6 @@ def get_resnet(version, num_layers, pretrained=False, ctx=cpu(),
     resnet_class = resnet_net_versions[version-1]
     block_class = resnet_block_versions[version-1][block_type]
     net = resnet_class(block_class, layers, channels, **kwargs)
-    if pretrained:
-        from .model_store import get_model_file
-        if not use_se:
-            net.load_parameters(get_model_file('resnet%d_v%d'%(num_layers, version),
-                                               tag=pretrained, root=root), ctx=ctx)
-        else:
-            net.load_parameters(get_model_file('se_resnet%d_v%d'%(num_layers, version),
-                                               tag=pretrained, root=root), ctx=ctx)
-        from ..data import ImageNet1kAttr
-        attrib = ImageNet1kAttr()
-        net.synset = attrib.synset
-        net.classes = attrib.classes
-        net.classes_long = attrib.classes_long
     return net
 
 def resnet50_v1(**kwargs):

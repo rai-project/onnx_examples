@@ -61,9 +61,9 @@ profile = opt.profile
 pretrained = True
 ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
 net = resnet50_v1(ctx=ctx)
+net.cast('float16')
 net.collect_params().initialize(ctx=mx.gpu())
 
-net.cast('float16')
 
 
 net.hybridize(static_alloc=True, static_shape=True)
