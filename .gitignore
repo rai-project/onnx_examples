@@ -11,3 +11,6 @@ onnxruntime_profile_*.json
 *.params
 
 mxnet_models
+*.nvvp
+*.pyc
+a.out
