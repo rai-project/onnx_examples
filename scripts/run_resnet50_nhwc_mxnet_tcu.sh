@@ -29,6 +29,9 @@ HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
 RESULTS_DIR=results/mxnet_tcu_nhwc/${GPU_NAME}
 
+OUTPUTFILE=${RESULTS_DIR}/resnete50_v1.csv
+rm -fr ${OUTPUTFILE}
+
 mkdir -p ${RESULTS_DIR}
 nvidia-smi -x -q -a >${RESULTS_DIR}/nvidia_smi.xml
 
@@ -39,5 +42,5 @@ for BATCH_SIZE in "${batch_sizes[@]}"; do
 
     echo "Running MXNET batchsize=${BATCH_SIZE}"
 
-    python tcu/run_mxnet_nhwc.py ${BATCH_SIZE_OPT} --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$MODEL_IDX
+    python tcu/run_mxnet_nhwc.py ${BATCH_SIZE_OPT} --num_warmup=$NUM_WARMUP --num_iterations=$NUM_ITERATIONS --model_idx=$MODEL_IDX >>${OUTPUTFILE}
 done
