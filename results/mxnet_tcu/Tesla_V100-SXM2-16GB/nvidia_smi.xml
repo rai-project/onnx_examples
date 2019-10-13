@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE nvidia_smi_log SYSTEM "nvsmi_device_v10.dtd">
 <nvidia_smi_log>
-	<timestamp>Sun Oct 13 16:21:57 2019</timestamp>
+	<timestamp>Sun Oct 13 16:25:27 2019</timestamp>
 	<driver_version>430.26</driver_version>
 	<cuda_version>10.2</cuda_version>
 	<attached_gpus>1</attached_gpus>
@@ -170,7 +170,7 @@
 			<pending_blacklist>No</pending_blacklist>
 		</retired_pages>
 		<temperature>
-			<gpu_temp>36 C</gpu_temp>
+			<gpu_temp>35 C</gpu_temp>
 			<gpu_temp_max_threshold>90 C</gpu_temp_max_threshold>
 			<gpu_temp_slow_threshold>87 C</gpu_temp_slow_threshold>
 			<gpu_temp_max_gpu_threshold>83 C</gpu_temp_max_gpu_threshold>
@@ -180,7 +180,7 @@
 		<power_readings>
 			<power_state>P0</power_state>
 			<power_management>Supported</power_management>
-			<power_draw>27.59 W</power_draw>
+			<power_draw>24.86 W</power_draw>
 			<power_limit>300.00 W</power_limit>
 			<default_power_limit>300.00 W</default_power_limit>
 			<enforced_power_limit>300.00 W</enforced_power_limit>
@@ -188,10 +188,10 @@
 			<max_power_limit>300.00 W</max_power_limit>
 		</power_readings>
 		<clocks>
-			<graphics_clock>682 MHz</graphics_clock>
-			<sm_clock>682 MHz</sm_clock>
+			<graphics_clock>135 MHz</graphics_clock>
+			<sm_clock>135 MHz</sm_clock>
 			<mem_clock>877 MHz</mem_clock>
-			<video_clock>607 MHz</video_clock>
+			<video_clock>555 MHz</video_clock>
 		</clocks>
 		<applications_clocks>
 			<graphics_clock>1312 MHz</graphics_clock>
