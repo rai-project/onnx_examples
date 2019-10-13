@@ -1,6 +1,4 @@
 1,ArcFace,2,10.708093643188477,11.046640078226725,11.3983154296875
-Model file is not found. Downloading.
-Downloading /home/ubuntu/.mxnet/models/alexnet-44335d1f.zip from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/alexnet-44335d1f.zip...
 2,bvlc_alexnet,2,1.0612010955810547,1.0831276575724285,1.1365413665771484
 3,bvlc_caffenet,2,1.1038780212402344,1.128212610880534,1.1725425720214844
 4,bvlc_googlenet,2,3.5581588745117188,3.62851619720459,3.816366195678711
