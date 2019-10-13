@@ -62,7 +62,7 @@ pretrained = True
 ctx = mx.gpu() if len(mx.test_utils.list_gpus()) else mx.cpu()
 net = resnet50_v1(ctx=ctx)
 net.cast('float16')
-net.collect_params().initialize(ctx=mx.gpu(), verbose=True, force_reinit=True)
+net.collect_params().initialize(ctx=mx.gpu(), verbose=False, force_reinit=True)
 
 
 
@@ -70,7 +70,7 @@ net.collect_params().initialize(ctx=mx.gpu(), verbose=True, force_reinit=True)
 net.hybridize(static_alloc=True, static_shape=True)
 
 net.cast('float16')
-net.collect_params().initialize(ctx=mx.gpu(), verbose=True, force_reinit=True)
+net.collect_params().initialize(ctx=mx.gpu(), verbose=False, force_reinit=True)
 
 
 
