@@ -6,7 +6,6 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 export MXNET_CUDA_ALLOW_TENSOR_CORE=1
 export MXNET_CUDA_TENSOR_OP_MATH_ALLOW_CONVERSION=1
-export TF_DISABLE_CUDNN_TENSOR_OP_MATH=0
 export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 declare -a batch_sizes=(
