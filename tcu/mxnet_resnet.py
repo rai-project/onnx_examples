@@ -29,6 +29,7 @@ __all__ = ['ResNetV1',
 from mxnet.context import cpu
 from mxnet.gluon.block import HybridBlock
 from mxnet.gluon import nn
+import mxnet as mx
 from mxnet.gluon.nn import BatchNorm
 
 # Helpers
