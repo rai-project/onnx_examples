@@ -27,7 +27,7 @@ NUM_ITERATIONS=30
 
 HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
-RESULTS_DIR=${DIR}/../results/mxnet_fix/${GPU_NAME}
+RESULTS_DIR=${DIR}/../results/mxnet/${GPU_NAME}
 
 mkdir -p ${RESULTS_DIR}
 nvidia-smi -x -q -a >${RESULTS_DIR}/nvidia_smi.xml

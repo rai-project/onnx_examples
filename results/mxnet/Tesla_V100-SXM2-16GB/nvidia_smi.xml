@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE nvidia_smi_log SYSTEM "nvsmi_device_v10.dtd">
 <nvidia_smi_log>
-	<timestamp>Mon Sep 30 01:22:12 2019</timestamp>
+	<timestamp>Sun Oct 13 21:20:22 2019</timestamp>
 	<driver_version>430.26</driver_version>
 	<cuda_version>10.2</cuda_version>
 	<attached_gpus>1</attached_gpus>
@@ -17,8 +17,8 @@
 			<current_dm>N/A</current_dm>
 			<pending_dm>N/A</pending_dm>
 		</driver_model>
-		<serial>0322218188302</serial>
-		<uuid>GPU-46b2987e-32f9-1c45-ec3d-e85d88b45143</uuid>
+		<serial>0323017115851</serial>
+		<uuid>GPU-2d143bbb-8f5a-a9dc-b1e7-5b698b6a26e2</uuid>
 		<minor_number>0</minor_number>
 		<vbios_version>88.00.4F.00.09</vbios_version>
 		<multigpu_board>No</multigpu_board>
@@ -135,14 +135,14 @@
 			</volatile>
 			<aggregate>
 				<single_bit>
-					<device_memory>0</device_memory>
+					<device_memory>1</device_memory>
 					<register_file>0</register_file>
 					<l1_cache>0</l1_cache>
 					<l2_cache>0</l2_cache>
 					<texture_memory>N/A</texture_memory>
 					<texture_shm>N/A</texture_shm>
 					<cbu>N/A</cbu>
-					<total>0</total>
+					<total>1</total>
 				</single_bit>
 				<double_bit>
 					<device_memory>0</device_memory>
@@ -170,17 +170,17 @@
 			<pending_blacklist>No</pending_blacklist>
 		</retired_pages>
 		<temperature>
-			<gpu_temp>45 C</gpu_temp>
+			<gpu_temp>34 C</gpu_temp>
 			<gpu_temp_max_threshold>90 C</gpu_temp_max_threshold>
 			<gpu_temp_slow_threshold>87 C</gpu_temp_slow_threshold>
 			<gpu_temp_max_gpu_threshold>83 C</gpu_temp_max_gpu_threshold>
-			<memory_temp>43 C</memory_temp>
+			<memory_temp>32 C</memory_temp>
 			<gpu_temp_max_mem_threshold>85 C</gpu_temp_max_mem_threshold>
 		</temperature>
 		<power_readings>
 			<power_state>P0</power_state>
 			<power_management>Supported</power_management>
-			<power_draw>27.00 W</power_draw>
+			<power_draw>24.28 W</power_draw>
 			<power_limit>300.00 W</power_limit>
 			<default_power_limit>300.00 W</default_power_limit>
 			<enforced_power_limit>300.00 W</enforced_power_limit>
