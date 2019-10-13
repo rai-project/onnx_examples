@@ -107,5 +107,5 @@ if profile:
 
 res = np.multiply(res, 1000)
 
-print("{},{},{},{},{},{}".format(model_idx+1, model_name, batch_size, np.min(t),
-                                 np.average(t), np.max(t)))
+print("{},{},{},{},{},{}".format(model_idx+1, model_name, batch_size, np.min(res),
+                                 np.average(res), np.max(res)))
