@@ -27,7 +27,7 @@ NUM_ITERATIONS=1
 
 HOST_NAME=$(hostname)
 GPU_NAME=$(nvidia-smi --query-gpu="name" --format=csv | sed -n 2p | tr -s ' ' | tr ' ' '_')
-RESULTS_DIR=results/mxnet_tcu_nhwc/cudnn_log/${GPU_NAME}
+RESULTS_DIR=results/mxnet_tcu_nhwc/${GPU_NAME}
 
 mkdir -p ${RESULTS_DIR}
 nvidia-smi -x -q -a >${RESULTS_DIR}/nvidia_smi.xml
